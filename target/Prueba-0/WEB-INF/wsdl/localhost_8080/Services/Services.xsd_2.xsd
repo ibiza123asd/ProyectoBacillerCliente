@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.2 (UNKNOWN-17d59c9; 2018-09-26T15:16:30-0700) JAXWS-RI/2.3.1 JAXWS-API/2.3.1 JAXB-RI/2.3.1 JAXB-API/2.3.1 svn-revision#unknown. --><xs:schema xmlns:tns="http://Servicios/" xmlns:ns1="http://jaxb.dev.java.net/array" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Servicios/">
+
+<xs:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://localhost:8080/Services/Services?xsd=1"/>
+
+<xs:element name="encontrarAgenda" type="tns:encontrarAgenda"/>
+
+<xs:element name="encontrarAgendaResponse" type="tns:encontrarAgendaResponse"/>
+
+<xs:element name="encontrarCita" type="tns:encontrarCita"/>
+
+<xs:element name="encontrarCitaResponse" type="tns:encontrarCitaResponse"/>
+
+<xs:element name="encontrarEspecialidad" type="tns:encontrarEspecialidad"/>
+
+<xs:element name="encontrarEspecialidadResponse" type="tns:encontrarEspecialidadResponse"/>
+
+<xs:element name="encontrarMedico" type="tns:encontrarMedico"/>
+
+<xs:element name="encontrarMedicoResponse" type="tns:encontrarMedicoResponse"/>
+
+<xs:element name="encontrarPaciente" type="tns:encontrarPaciente"/>
+
+<xs:element name="encontrarPacienteResponse" type="tns:encontrarPacienteResponse"/>
+
+<xs:element name="encontrarUltimoRegistro" type="tns:encontrarUltimoRegistro"/>
+
+<xs:element name="encontrarUltimoRegistroResponse" type="tns:encontrarUltimoRegistroResponse"/>
+
+<xs:element name="findCitas" type="tns:findCitas"/>
+
+<xs:element name="findCitasResponse" type="tns:findCitasResponse"/>
+
+<xs:element name="hello" type="tns:hello"/>
+
+<xs:element name="helloResponse" type="tns:helloResponse"/>
+
+<xs:element name="listarAgendaByMedico" type="tns:listarAgendaByMedico"/>
+
+<xs:element name="listarAgendaByMedicoResponse" type="tns:listarAgendaByMedicoResponse"/>
+
+<xs:element name="listarEspecialidades" type="tns:listarEspecialidades"/>
+
+<xs:element name="listarEspecialidadesResponse" type="tns:listarEspecialidadesResponse"/>
+
+<xs:element name="listarMedicoByEspecialidad" type="tns:listarMedicoByEspecialidad"/>
+
+<xs:element name="listarMedicoByEspecialidadResponse" type="tns:listarMedicoByEspecialidadResponse"/>
+
+<xs:element name="logeo" type="tns:logeo"/>
+
+<xs:element name="logeoResponse" type="tns:logeoResponse"/>
+
+<xs:element name="registrarCita" type="tns:registrarCita"/>
+
+<xs:element name="registrarCitaResponse" type="tns:registrarCitaResponse"/>
+
+<xs:element name="registrarPaciente" type="tns:registrarPaciente"/>
+
+<xs:element name="registrarPacienteResponse" type="tns:registrarPacienteResponse"/>
+
+<xs:element name="updatePaciente" type="tns:updatePaciente"/>
+
+<xs:element name="updatePacienteResponse" type="tns:updatePacienteResponse"/>
+
+<xs:complexType name="encontrarAgenda">
+<xs:sequence>
+<xs:element name="idAgenda" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="encontrarAgendaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:agendaDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agendaDTO">
+<xs:sequence>
+<xs:element name="fechaHora" type="xs:string" minOccurs="0"/>
+<xs:element name="idAgenda" type="xs:int" minOccurs="0"/>
+<xs:element name="idMedico" type="xs:int" minOccurs="0"/>
+<xs:element name="nombreMedico" type="xs:string" minOccurs="0"/>
+<xs:element name="turno" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="encontrarMedico">
+<xs:sequence>
+<xs:element name="idMedico" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="encontrarMedicoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:medicoDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="medicoDTO">
+<xs:sequence>
+<xs:element name="apellidoMat" type="xs:string" minOccurs="0"/>
+<xs:element name="apellidoPat" type="xs:string" minOccurs="0"/>
+<xs:element name="idEspecialidad" type="xs:int"/>
+<xs:element name="idMedico" type="xs:int" minOccurs="0"/>
+<xs:element name="nombreEspecialidad" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreMedico" type="xs:string" minOccurs="0"/>
+<xs:element name="telefono" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="encontrarUltimoRegistro">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="encontrarUltimoRegistroResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registrarPaciente">
+<xs:sequence>
+<xs:element name="paciente" type="tns:paciente" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="paciente">
+<xs:sequence>
+<xs:element name="apellidoMaterno" type="xs:string" minOccurs="0"/>
+<xs:element name="apellidoPaterno" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="dni" type="xs:string" minOccurs="0"/>
+<xs:element name="edad" type="xs:int"/>
+<xs:element name="idPaciente" type="xs:int" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="seguroSIS" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registrarPacienteResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarEspecialidades">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listarEspecialidadesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:especialidad" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="especialidad">
+<xs:sequence>
+<xs:element name="idEspecialidad" type="xs:int" minOccurs="0"/>
+<xs:element name="nombreEspecialidad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="encontrarCita">
+<xs:sequence>
+<xs:element name="codigo" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="encontrarCitaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:citaDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="citaDTO">
+<xs:sequence>
+<xs:element name="idCita" type="xs:int" minOccurs="0"/>
+<xs:element name="idMedico" type="xs:int" minOccurs="0"/>
+<xs:element name="idPaciente" type="xs:int" minOccurs="0"/>
+<xs:element name="nombreMedico" type="xs:string" minOccurs="0"/>
+<xs:element name="nombrePaciente" type="xs:string" minOccurs="0"/>
+<xs:element name="orden" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registrarCita">
+<xs:sequence>
+<xs:element name="cita" type="tns:cita" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cita">
+<xs:sequence>
+<xs:element name="idCita" type="xs:int" minOccurs="0"/>
+<xs:element name="idMedico" type="tns:medico" minOccurs="0"/>
+<xs:element name="idPaciente" type="tns:paciente" minOccurs="0"/>
+<xs:element name="orden" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="medico">
+<xs:sequence>
+<xs:element name="agendaList" type="tns:agenda" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="apellidoMat" type="xs:string" minOccurs="0"/>
+<xs:element name="apellidoPat" type="xs:string" minOccurs="0"/>
+<xs:element name="idEspecialidad" type="tns:especialidad" minOccurs="0"/>
+<xs:element name="idMedico" type="xs:int" minOccurs="0"/>
+<xs:element name="nombreMedico" type="xs:string" minOccurs="0"/>
+<xs:element name="telefono" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agenda">
+<xs:sequence>
+<xs:element name="fechaHora" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="idAgenda" type="xs:int" minOccurs="0"/>
+<xs:element name="idMedico" type="tns:medico" minOccurs="0"/>
+<xs:element name="turno" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registrarCitaResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="logeo">
+<xs:sequence>
+<xs:element name="documento" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logeoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:paciente" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findCitas">
+<xs:sequence>
+<xs:element name="documento" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findCitasResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:anyTypeArray" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarMedicoByEspecialidad">
+<xs:sequence>
+<xs:element name="codEspecialidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarMedicoByEspecialidadResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:medicoDTO" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="encontrarPaciente">
+<xs:sequence>
+<xs:element name="documento" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="encontrarPacienteResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:paciente" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarAgendaByMedico">
+<xs:sequence>
+<xs:element name="codMedico" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarAgendaByMedicoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:agendaDTO" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updatePaciente">
+<xs:sequence>
+<xs:element name="paciente" type="tns:paciente" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updatePacienteResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="encontrarEspecialidad">
+<xs:sequence>
+<xs:element name="idEspecialidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="encontrarEspecialidadResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:especialidad" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
