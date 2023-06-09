@@ -19,13 +19,13 @@
         <script src="funciones.js" type="text/javascript"></script>
     </head>
     <body>
-        <jsp:include page="header.jsp" />
+        <jsp:include page="main.jsp" />
         <div class="container mt-3 mb-2">
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header">
-                            <h4>Formulario de Registro</h4>
+                        <div class="card-header">                            
+                            <h4 class="m-0 font-weight-bold text-primary" style="text-align: center;">Formulario de Registro</h6> 
                         </div>
                         <div class="card-body">
                             <form action="ControlCitas?accion=registrarUsuario&documentor=<%=dni%>&bandera=<%=bandera%>" method="post">
@@ -58,7 +58,7 @@
                                     <input type="password" class="form-control" id="password" name="contrasena" placeholder="Ingresa tu contraseña">
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary" name="boton"value="btn3">RegistrarPaciente</button>
+                                    <button type="submit" class="btn btn-primary" name="boton"value="btn3">Registrar Paciente</button>
                                 </div>
                             </form>
                         </div>

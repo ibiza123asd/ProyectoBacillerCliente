@@ -190,6 +190,7 @@
 
 <xs:complexType name="cita">
 <xs:sequence>
+<xs:element name="costoCita" type="xs:double" minOccurs="0"/>
 <xs:element name="idCita" type="xs:int" minOccurs="0"/>
 <xs:element name="idMedico" type="tns:medico" minOccurs="0"/>
 <xs:element name="idPaciente" type="tns:paciente" minOccurs="0"/>

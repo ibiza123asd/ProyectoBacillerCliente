@@ -13,18 +13,6 @@
 <message name="registrarCitaResponse">
 <part name="parameters" element="tns:registrarCitaResponse"/>
 </message>
-<message name="encontrarAgenda">
-<part name="parameters" element="tns:encontrarAgenda"/>
-</message>
-<message name="encontrarAgendaResponse">
-<part name="parameters" element="tns:encontrarAgendaResponse"/>
-</message>
-<message name="encontrarMedico">
-<part name="parameters" element="tns:encontrarMedico"/>
-</message>
-<message name="encontrarMedicoResponse">
-<part name="parameters" element="tns:encontrarMedicoResponse"/>
-</message>
 <message name="findCitas">
 <part name="parameters" element="tns:findCitas"/>
 </message>
@@ -37,11 +25,29 @@
 <message name="helloResponse">
 <part name="parameters" element="tns:helloResponse"/>
 </message>
+<message name="encontrarMedico">
+<part name="parameters" element="tns:encontrarMedico"/>
+</message>
+<message name="encontrarMedicoResponse">
+<part name="parameters" element="tns:encontrarMedicoResponse"/>
+</message>
+<message name="encontrarAgenda">
+<part name="parameters" element="tns:encontrarAgenda"/>
+</message>
+<message name="encontrarAgendaResponse">
+<part name="parameters" element="tns:encontrarAgendaResponse"/>
+</message>
 <message name="encontrarCita">
 <part name="parameters" element="tns:encontrarCita"/>
 </message>
 <message name="encontrarCitaResponse">
 <part name="parameters" element="tns:encontrarCitaResponse"/>
+</message>
+<message name="updatePaciente">
+<part name="parameters" element="tns:updatePaciente"/>
+</message>
+<message name="updatePacienteResponse">
+<part name="parameters" element="tns:updatePacienteResponse"/>
 </message>
 <message name="logeo">
 <part name="parameters" element="tns:logeo"/>
@@ -49,17 +55,11 @@
 <message name="logeoResponse">
 <part name="parameters" element="tns:logeoResponse"/>
 </message>
-<message name="registrarPaciente">
-<part name="parameters" element="tns:registrarPaciente"/>
+<message name="listarEspecialidades">
+<part name="parameters" element="tns:listarEspecialidades"/>
 </message>
-<message name="registrarPacienteResponse">
-<part name="parameters" element="tns:registrarPacienteResponse"/>
-</message>
-<message name="listarAgendaByMedico">
-<part name="parameters" element="tns:listarAgendaByMedico"/>
-</message>
-<message name="listarAgendaByMedicoResponse">
-<part name="parameters" element="tns:listarAgendaByMedicoResponse"/>
+<message name="listarEspecialidadesResponse">
+<part name="parameters" element="tns:listarEspecialidadesResponse"/>
 </message>
 <message name="encontrarEspecialidad">
 <part name="parameters" element="tns:encontrarEspecialidad"/>
@@ -67,11 +67,17 @@
 <message name="encontrarEspecialidadResponse">
 <part name="parameters" element="tns:encontrarEspecialidadResponse"/>
 </message>
-<message name="listarEspecialidades">
-<part name="parameters" element="tns:listarEspecialidades"/>
+<message name="listarAgendaByMedico">
+<part name="parameters" element="tns:listarAgendaByMedico"/>
 </message>
-<message name="listarEspecialidadesResponse">
-<part name="parameters" element="tns:listarEspecialidadesResponse"/>
+<message name="listarAgendaByMedicoResponse">
+<part name="parameters" element="tns:listarAgendaByMedicoResponse"/>
+</message>
+<message name="registrarPaciente">
+<part name="parameters" element="tns:registrarPaciente"/>
+</message>
+<message name="registrarPacienteResponse">
+<part name="parameters" element="tns:registrarPacienteResponse"/>
 </message>
 <message name="encontrarPaciente">
 <part name="parameters" element="tns:encontrarPaciente"/>
@@ -91,24 +97,10 @@
 <message name="listarMedicoByEspecialidadResponse">
 <part name="parameters" element="tns:listarMedicoByEspecialidadResponse"/>
 </message>
-<message name="updatePaciente">
-<part name="parameters" element="tns:updatePaciente"/>
-</message>
-<message name="updatePacienteResponse">
-<part name="parameters" element="tns:updatePacienteResponse"/>
-</message>
 <portType name="Services">
 <operation name="registrarCita">
 <input wsam:Action="http://Servicios/Services/registrarCitaRequest" message="tns:registrarCita"/>
 <output wsam:Action="http://Servicios/Services/registrarCitaResponse" message="tns:registrarCitaResponse"/>
-</operation>
-<operation name="encontrarAgenda">
-<input wsam:Action="http://Servicios/Services/encontrarAgendaRequest" message="tns:encontrarAgenda"/>
-<output wsam:Action="http://Servicios/Services/encontrarAgendaResponse" message="tns:encontrarAgendaResponse"/>
-</operation>
-<operation name="encontrarMedico">
-<input wsam:Action="http://Servicios/Services/encontrarMedicoRequest" message="tns:encontrarMedico"/>
-<output wsam:Action="http://Servicios/Services/encontrarMedicoResponse" message="tns:encontrarMedicoResponse"/>
 </operation>
 <operation name="findCitas">
 <input wsam:Action="http://Servicios/Services/findCitasRequest" message="tns:findCitas"/>
@@ -118,29 +110,41 @@
 <input wsam:Action="http://Servicios/Services/helloRequest" message="tns:hello"/>
 <output wsam:Action="http://Servicios/Services/helloResponse" message="tns:helloResponse"/>
 </operation>
+<operation name="encontrarMedico">
+<input wsam:Action="http://Servicios/Services/encontrarMedicoRequest" message="tns:encontrarMedico"/>
+<output wsam:Action="http://Servicios/Services/encontrarMedicoResponse" message="tns:encontrarMedicoResponse"/>
+</operation>
+<operation name="encontrarAgenda">
+<input wsam:Action="http://Servicios/Services/encontrarAgendaRequest" message="tns:encontrarAgenda"/>
+<output wsam:Action="http://Servicios/Services/encontrarAgendaResponse" message="tns:encontrarAgendaResponse"/>
+</operation>
 <operation name="encontrarCita">
 <input wsam:Action="http://Servicios/Services/encontrarCitaRequest" message="tns:encontrarCita"/>
 <output wsam:Action="http://Servicios/Services/encontrarCitaResponse" message="tns:encontrarCitaResponse"/>
+</operation>
+<operation name="updatePaciente">
+<input wsam:Action="http://Servicios/Services/updatePacienteRequest" message="tns:updatePaciente"/>
+<output wsam:Action="http://Servicios/Services/updatePacienteResponse" message="tns:updatePacienteResponse"/>
 </operation>
 <operation name="logeo">
 <input wsam:Action="http://Servicios/Services/logeoRequest" message="tns:logeo"/>
 <output wsam:Action="http://Servicios/Services/logeoResponse" message="tns:logeoResponse"/>
 </operation>
-<operation name="registrarPaciente">
-<input wsam:Action="http://Servicios/Services/registrarPacienteRequest" message="tns:registrarPaciente"/>
-<output wsam:Action="http://Servicios/Services/registrarPacienteResponse" message="tns:registrarPacienteResponse"/>
-</operation>
-<operation name="listarAgendaByMedico">
-<input wsam:Action="http://Servicios/Services/listarAgendaByMedicoRequest" message="tns:listarAgendaByMedico"/>
-<output wsam:Action="http://Servicios/Services/listarAgendaByMedicoResponse" message="tns:listarAgendaByMedicoResponse"/>
+<operation name="listarEspecialidades">
+<input wsam:Action="http://Servicios/Services/listarEspecialidadesRequest" message="tns:listarEspecialidades"/>
+<output wsam:Action="http://Servicios/Services/listarEspecialidadesResponse" message="tns:listarEspecialidadesResponse"/>
 </operation>
 <operation name="encontrarEspecialidad">
 <input wsam:Action="http://Servicios/Services/encontrarEspecialidadRequest" message="tns:encontrarEspecialidad"/>
 <output wsam:Action="http://Servicios/Services/encontrarEspecialidadResponse" message="tns:encontrarEspecialidadResponse"/>
 </operation>
-<operation name="listarEspecialidades">
-<input wsam:Action="http://Servicios/Services/listarEspecialidadesRequest" message="tns:listarEspecialidades"/>
-<output wsam:Action="http://Servicios/Services/listarEspecialidadesResponse" message="tns:listarEspecialidadesResponse"/>
+<operation name="listarAgendaByMedico">
+<input wsam:Action="http://Servicios/Services/listarAgendaByMedicoRequest" message="tns:listarAgendaByMedico"/>
+<output wsam:Action="http://Servicios/Services/listarAgendaByMedicoResponse" message="tns:listarAgendaByMedicoResponse"/>
+</operation>
+<operation name="registrarPaciente">
+<input wsam:Action="http://Servicios/Services/registrarPacienteRequest" message="tns:registrarPaciente"/>
+<output wsam:Action="http://Servicios/Services/registrarPacienteResponse" message="tns:registrarPacienteResponse"/>
 </operation>
 <operation name="encontrarPaciente">
 <input wsam:Action="http://Servicios/Services/encontrarPacienteRequest" message="tns:encontrarPaciente"/>
@@ -154,32 +158,10 @@
 <input wsam:Action="http://Servicios/Services/listarMedicoByEspecialidadRequest" message="tns:listarMedicoByEspecialidad"/>
 <output wsam:Action="http://Servicios/Services/listarMedicoByEspecialidadResponse" message="tns:listarMedicoByEspecialidadResponse"/>
 </operation>
-<operation name="updatePaciente">
-<input wsam:Action="http://Servicios/Services/updatePacienteRequest" message="tns:updatePaciente"/>
-<output wsam:Action="http://Servicios/Services/updatePacienteResponse" message="tns:updatePacienteResponse"/>
-</operation>
 </portType>
 <binding name="ServicesPortBinding" type="tns:Services">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
 <operation name="registrarCita">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="encontrarAgenda">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="encontrarMedico">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -206,7 +188,34 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="encontrarMedico">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="encontrarAgenda">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="encontrarCita">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="updatePaciente">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -224,16 +233,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="registrarPaciente">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="listarAgendaByMedico">
+<operation name="listarEspecialidades">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -251,7 +251,16 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="listarEspecialidades">
+<operation name="listarAgendaByMedico">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="registrarPaciente">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -279,15 +288,6 @@
 </output>
 </operation>
 <operation name="listarMedicoByEspecialidad">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="updatePaciente">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

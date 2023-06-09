@@ -40,9 +40,12 @@
                         </div>
                         <hr>
                         <div class="total">
-                            <h4>Importe: s/${monto}</h4>
+                            <h4>Importe: S/${monto}</h4>
                         </div>
-                        <a class="btn btn-primary btn-descargar" id="btn-descargar">Descargar comprobante</a>
+                        
+                        <div style="text-align: center;">
+                            <a class="btn btn-primary btn-descargar" id="btn-descargar">Descargar comprobante</a>
+                        </div>
                     </div>
                 </div>
             </div>

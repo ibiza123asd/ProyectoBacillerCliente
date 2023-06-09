@@ -1,42 +1,96 @@
-<main>
-            <div class="container my-5">
-                <div class="row">
-                    <div class="col-md-8 mx-auto">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+<!DOCTYPE html>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="Services.ServiciosCliente"%>
+<%@page import="java.util.List"%>
+<%@page import="Services.Especialidad"%>
+<%@page import="Services.Paciente"%>
+<%@page import="Services.*"%>
+<%
+
+%>
+
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>SIST GC - Dashboard</title>
+
+        <!-- Custom fonts for this template-->
+        <link href="Bmodelo/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="Bmodelo/css/sb-admin-2.min.css" rel="stylesheet">
+
+    </head>
+
+    <body id="page-top">
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="background-color: #5A5B5A!important;">
+
+                        <!-- Topbar Search -->
+                        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <div class="sidebar-brand-icon rotate-n-15">
+                                    <i class="fas fa-laugh-wink"></i>
+                                </div>
+                                <div class="sidebar-brand-text mx-3" style="color: #fff; font-weight: bold;">MINISTERIO DE SALUD</div>
                             </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="imagenes/imagen1.jpg" class="d-block img-fluid" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="imagenes/imagen2.jpg" class="d-block img-fluid" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="imagenes/imagen3.jpg" class="d-block img-fluid" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="imagenes/imagen4.jpg" class="d-block img-fluid" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="imagenes/imagen5.jpg" class="d-block img-fluid" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Anterior</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Siguiente</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>  
+                        </form>
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">                            
+
+                            <div class="topbar-divider d-none d-sm-block"></div>
+                            
+                            <c:if test="${paciente==null}">
+                                <a href="ValidarSis.jsp" class="btn btn-warning btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                    <span class="text">VALIDAR SIS</span>
+                                </a>
+                            </c:if>
+
+                            <div class="topbar-divider d-none d-sm-block"></div>
+
+                            <c:if test="${paciente==null}">
+                                <a href="login.jsp" class="btn btn-danger btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                    <span class="text">LOGIN</span>
+                                </a>
+                            </c:if>
+
+                        </ul>
+
+                    </nav>
+                    <!-- End of Topbar -->
