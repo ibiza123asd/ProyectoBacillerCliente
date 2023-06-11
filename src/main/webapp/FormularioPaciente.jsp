@@ -1,8 +1,3 @@
-<%-- 
-    Document   : FormularioPaciente
-    Created on : 06/05/2023, 11:34:25 AM
-    Author     : Brandon
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false" %>

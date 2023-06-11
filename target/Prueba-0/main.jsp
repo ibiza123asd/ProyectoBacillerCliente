@@ -71,6 +71,17 @@
                             <div class="topbar-divider d-none d-sm-block"></div>
                             
                             <c:if test="${paciente==null}">
+                                <a href="adm_dashboard.jsp" class="btn btn-info btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-adjust"></i>
+                                    </span>
+                                    <span class="text">ADMINISTRADOR</span>
+                                </a>
+                            </c:if>
+                            
+                             <div class="topbar-divider d-none d-sm-block"></div>
+
+                            <c:if test="${paciente==null}">
                                 <a href="ValidarSis.jsp" class="btn btn-warning btn-icon-split">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-check"></i>
