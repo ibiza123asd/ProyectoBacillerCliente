@@ -63,14 +63,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AnyTypeArray }
-     * 
-     */
-    public AnyTypeArray createAnyTypeArray() {
-        return new AnyTypeArray();
-    }
-
-    /**
      * Create an instance of {@link EncontrarMedico }
      * 
      */
@@ -372,6 +364,14 @@ public class ObjectFactory {
      */
     public Cita createCita() {
         return new Cita();
+    }
+
+    /**
+     * Create an instance of {@link AnyTypeArray }
+     * 
+     */
+    public AnyTypeArray createAnyTypeArray() {
+        return new AnyTypeArray();
     }
 
     /**
