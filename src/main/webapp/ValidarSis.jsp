@@ -19,7 +19,7 @@
     %>
     <body>
 
-        <jsp:include page="main.jsp" />   
+         <jsp:include page="header.jsp" />  
 
         <main>
             <div class="container my-5">

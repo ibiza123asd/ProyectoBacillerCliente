@@ -3,7 +3,6 @@ function actualizarMedicos() {
     var especialidadSeleccionada = selectEspecialidades.options[selectEspecialidades.selectedIndex].value;
     var selectMedicos = document.getElementById("medicos");
     var medicoSeleccionado = selectMedicos.options[selectMedicos.selectedIndex].value || '';
-    alert("MedicoSeleccionado:" +medicoSeleccionado);
     var accion = "listas";
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {

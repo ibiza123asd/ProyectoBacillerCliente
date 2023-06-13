@@ -34,74 +34,47 @@
 
     </head>
 
-    <body id="page-top">
-
-        <!-- Page Wrapper -->
-        <div id="wrapper">
-
-
-
-            <!-- Content Wrapper -->
-            <div id="content-wrapper" class="d-flex flex-column">
-
-                <!-- Main Content -->
-                <div id="content">
-
-                    <!-- Topbar -->
-                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="background-color: #5A5B5A!important;">
-
-                        <!-- Topbar Search -->
-                        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group">
-                                <div class="sidebar-brand-icon rotate-n-15">
-                                    <i class="fas fa-laugh-wink"></i>
-                                </div>
-                                <div class="sidebar-brand-text mx-3" style="color: #fff; font-weight: bold;">MINISTERIO DE SALUD</div>
+    <main>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-11 mx-auto">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="imagenes/imagen1.jpg" class="d-block img-fluid" alt="...">
                             </div>
-                        </form>
-
-                        <!-- Sidebar Toggle (Topbar) -->
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
+                            <div class="carousel-item">
+                                <img src="imagenes/imagen2.jpg" class="d-block img-fluid" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imagenes/imagen3.jpg" class="d-block img-fluid" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imagenes/imagen4.jpg" class="d-block img-fluid" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="imagenes/imagen5.jpg" class="d-block img-fluid" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
                         </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>  
 
-                        <!-- Topbar Navbar -->
-                        <ul class="navbar-nav ml-auto">                            
 
-                            <div class="topbar-divider d-none d-sm-block"></div>
-                            
-                            <c:if test="${paciente==null}">
-                                <a href="adm_dashboard.jsp" class="btn btn-info btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-adjust"></i>
-                                    </span>
-                                    <span class="text">ADMINISTRADOR</span>
-                                </a>
-                            </c:if>
-                            
-                             <div class="topbar-divider d-none d-sm-block"></div>
-
-                            <c:if test="${paciente==null}">
-                                <a href="ValidarSis.jsp" class="btn btn-warning btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-check"></i>
-                                    </span>
-                                    <span class="text">VALIDAR SIS</span>
-                                </a>
-                            </c:if>
-
-                            <div class="topbar-divider d-none d-sm-block"></div>
-
-                            <c:if test="${paciente==null}">
-                                <a href="login.jsp" class="btn btn-danger btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-arrow-right"></i>
-                                    </span>
-                                    <span class="text">LOGIN</span>
-                                </a>
-                            </c:if>
-
-                        </ul>
-
-                    </nav>
-                    <!-- End of Topbar -->

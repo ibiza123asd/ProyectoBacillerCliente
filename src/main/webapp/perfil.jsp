@@ -40,16 +40,9 @@
             <div class="col-xl-4 col-lg-5">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
-                    <div
-                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Datos Personales</h6> 
 
-                        <a href="#" class="btn btn-success btn-icon-split">
-                            <span class="icon text-white-50">
-                                <i class="fas fa-check"></i>
-                            </span>
-                            <span class="text">Actualizar</span>
-                        </a>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -138,13 +131,6 @@
                                             <div class="col-auto">
                                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                             </div>
-
-                                            <div class="col-auto">
-                                                <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#">
-                                                    <span class="text">Detalle</span>
-                                                </a>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -163,7 +149,7 @@
     <!-- /.container-fluid -->
 
     <jsp:include page="footer.jsp" />  
-    
+
 
 </body>
 

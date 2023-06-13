@@ -10,7 +10,7 @@
     %>
 <body>
 
-    <jsp:include page="main.jsp" />
+     <jsp:include page="header.jsp" />
 
     <!-- Begin Page Content -->
     <div class="container-fluid">

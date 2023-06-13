@@ -46,13 +46,14 @@ public class ControlCitas extends HttpServlet {
                 req.getRequestDispatcher("/perfil.jsp").forward(req, resp);
                 break;
             case "cerrarSesion":
+                System.out.println("Entrando a cerrar sesion");
                 sesion.invalidate();
                 resp.sendRedirect("ControlCitas?accion=inicio");
                 break;
             case "registrarUsuario":
                 documento = req.getParameter("documentor");
                 int bandera = Integer.parseInt(req.getParameter("bandera"));
-                this.registroPaciente(req, resp, documento,bandera);
+                this.registroPaciente(req, resp, documento, bandera);
                 break;
             case "formularioCita":
                 documento = req.getParameter("dni");
@@ -75,40 +76,41 @@ public class ControlCitas extends HttpServlet {
                 break;
         }
     }
-    
-    public void updatePass(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+
+    public void updatePass(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Entrando al metodo updatePass");
         String pass1 = req.getParameter("contrasena");
         String pass2 = req.getParameter("contrasena2");
         String dni = req.getParameter("documento");
-        System.out.println("Contraseña1:" +pass1+" Contraseña2:" +pass2);
-        if(pass1.equals(pass2)){
+        System.out.println("Contraseña1:" + pass1 + " Contraseña2:" + pass2);
+        if (pass1.equals(pass2)) {
             Paciente paciente = sc.encontrarPaciente(dni);
-            System.out.println("Paciente encontrado:" +paciente.toString());
+            System.out.println("Paciente encontrado:" + paciente.toString());
             paciente.setIdPaciente(paciente.getIdPaciente());
             paciente.setContrasena(pass2);
             sc.updatePassWord(paciente);
             req.getRequestDispatcher("/login.jsp").forward(req, resp);
-        }else{
+        } else {
             req.setAttribute("Llave", "Tus password ingresados no coinciden");
             req.getRequestDispatcher("/FormularioRecuperar.jsp").forward(req, resp);
         }
-        
+
     }
+
     public void recuperarContraseña(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String correo = req.getParameter("email");
         String dni = req.getParameter("dni");
-        Paciente paciente =sc.encontrarPaciente(dni);
-        if(paciente!=null){
-            if(correo.equals(paciente.getCorreo())){
+        Paciente paciente = sc.encontrarPaciente(dni);
+        if (paciente != null) {
+            if (correo.equals(paciente.getCorreo())) {
                 req.setAttribute("dni", paciente.getDni());
                 req.setAttribute("Llave", "Usuario Encontrado");
                 req.getRequestDispatcher("/FormularioRecuperar.jsp").forward(req, resp);
-            }else{
+            } else {
                 req.setAttribute("Llave2", "Correo Incorrecto, Intentelo Otra vez");
                 req.getRequestDispatcher("/RecuperarPass.jsp").forward(req, resp);
             }
-        }else{
+        } else {
             req.setAttribute("Llave2", "Usuario Inexistente");
             req.getRequestDispatcher("/RecuperarPass.jsp").forward(req, resp);
         }
@@ -173,8 +175,8 @@ public class ControlCitas extends HttpServlet {
         String apeMa = req.getParameter("apellido_materno");
         int edad = Integer.parseInt(req.getParameter("edad"));
         String correo = req.getParameter("email");
-        boolean seguro=false;
-        if(bandera==1){
+        boolean seguro = false;
+        if (bandera == 1) {
             seguro = true;
         }
         String passwordr = req.getParameter("contrasena");
@@ -211,7 +213,7 @@ public class ControlCitas extends HttpServlet {
         } else {
             req.setAttribute("bandera", 0);
             req.setAttribute("DNI", documento);
-            req.setAttribute("Resultado", "Usted No Cuenta con SIS");           
+            req.setAttribute("Resultado", "Usted No Cuenta con SIS");
             req.getRequestDispatcher("/ValidarSis.jsp").forward(req, resp);
         }
     }
@@ -221,11 +223,11 @@ public class ControlCitas extends HttpServlet {
         int medico = Integer.parseInt(req.getParameter("medicos"));
         int agenda = Integer.parseInt(req.getParameter("agenda"));
         String documento = req.getParameter("documento");
-        double MONTO=15.99;      
+        double MONTO = 15.99;
         Cita cita = new Cita();
         MedicoDTO medicodto = sc.encontrarMedico(medico);
         Paciente paciente = sc.encontrarPaciente(documento);
-        if(paciente.isSeguroSIS()){
+        if (paciente.isSeguroSIS()) {
             MONTO = 0;
         }
         Medico medicod = new Medico();
@@ -253,6 +255,7 @@ public class ControlCitas extends HttpServlet {
     public String validarApiSIS(String documento) {
         String resultado = null;
         List<String> documentos = new ArrayList<>();
+        //tienen sis pero no cuenta asociada
         documentos.add("77777777");
         documentos.add("88888888");
         documentos.add("11111144");
@@ -313,6 +316,7 @@ public class ControlCitas extends HttpServlet {
         documentos.add("75922455");
         documentos.add("654878");
         documentos.add("88888888");
+        documentos.add("7777");
         for (String doc : documentos) {
             if (doc.equals(documento)) {
                 resultado = documento;
