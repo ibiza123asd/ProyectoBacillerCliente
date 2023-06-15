@@ -26,6 +26,9 @@ public class ObjectFactory {
 
     private final static QName _EncontrarCitaResponse_QNAME = new QName("http://Servicios/", "encontrarCitaResponse");
     private final static QName _Hello_QNAME = new QName("http://Servicios/", "hello");
+    private final static QName _CountMedicsBySpecialty_QNAME = new QName("http://Servicios/", "countMedicsBySpecialty");
+    private final static QName _CountMedicsByShiftResponse_QNAME = new QName("http://Servicios/", "countMedicsByShiftResponse");
+    private final static QName _PacientePorEspecialidadResponse_QNAME = new QName("http://Servicios/", "pacientePorEspecialidadResponse");
     private final static QName _ListarAgendaByMedico_QNAME = new QName("http://Servicios/", "listarAgendaByMedico");
     private final static QName _FindCitasResponse_QNAME = new QName("http://Servicios/", "findCitasResponse");
     private final static QName _EncontrarPacienteResponse_QNAME = new QName("http://Servicios/", "encontrarPacienteResponse");
@@ -38,19 +41,26 @@ public class ObjectFactory {
     private final static QName _EncontrarCita_QNAME = new QName("http://Servicios/", "encontrarCita");
     private final static QName _ListarAgendaByMedicoResponse_QNAME = new QName("http://Servicios/", "listarAgendaByMedicoResponse");
     private final static QName _RegistrarPacienteResponse_QNAME = new QName("http://Servicios/", "registrarPacienteResponse");
+    private final static QName _CountMedicsByShift_QNAME = new QName("http://Servicios/", "countMedicsByShift");
+    private final static QName _CountMedicsBySpecialtyResponse_QNAME = new QName("http://Servicios/", "countMedicsBySpecialtyResponse");
     private final static QName _EncontrarUltimoRegistro_QNAME = new QName("http://Servicios/", "encontrarUltimoRegistro");
     private final static QName _EncontrarAgenda_QNAME = new QName("http://Servicios/", "encontrarAgenda");
+    private final static QName _PacientePorEspecialidad_QNAME = new QName("http://Servicios/", "pacientePorEspecialidad");
+    private final static QName _CountAppointmentsByPatientResponse_QNAME = new QName("http://Servicios/", "countAppointmentsByPatientResponse");
     private final static QName _ListarMedicoByEspecialidadResponse_QNAME = new QName("http://Servicios/", "listarMedicoByEspecialidadResponse");
     private final static QName _UpdatePacienteResponse_QNAME = new QName("http://Servicios/", "updatePacienteResponse");
     private final static QName _EncontrarEspecialidad_QNAME = new QName("http://Servicios/", "encontrarEspecialidad");
     private final static QName _ListarEspecialidadesResponse_QNAME = new QName("http://Servicios/", "listarEspecialidadesResponse");
+    private final static QName _CountPatientsByMedicResponse_QNAME = new QName("http://Servicios/", "countPatientsByMedicResponse");
     private final static QName _UpdatePaciente_QNAME = new QName("http://Servicios/", "updatePaciente");
     private final static QName _EncontrarEspecialidadResponse_QNAME = new QName("http://Servicios/", "encontrarEspecialidadResponse");
+    private final static QName _CountPatientsByMedic_QNAME = new QName("http://Servicios/", "countPatientsByMedic");
     private final static QName _EncontrarPaciente_QNAME = new QName("http://Servicios/", "encontrarPaciente");
     private final static QName _FindCitas_QNAME = new QName("http://Servicios/", "findCitas");
     private final static QName _ListarMedicoByEspecialidad_QNAME = new QName("http://Servicios/", "listarMedicoByEspecialidad");
     private final static QName _Logeo_QNAME = new QName("http://Servicios/", "logeo");
     private final static QName _ListarEspecialidades_QNAME = new QName("http://Servicios/", "listarEspecialidades");
+    private final static QName _CountAppointmentsByPatient_QNAME = new QName("http://Servicios/", "countAppointmentsByPatient");
     private final static QName _RegistrarPaciente_QNAME = new QName("http://Servicios/", "registrarPaciente");
     private final static QName _EncontrarMedico_QNAME = new QName("http://Servicios/", "encontrarMedico");
     private final static QName _LogeoResponse_QNAME = new QName("http://Servicios/", "logeoResponse");
@@ -103,11 +113,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CountAppointmentsByPatient }
+     * 
+     */
+    public CountAppointmentsByPatient createCountAppointmentsByPatient() {
+        return new CountAppointmentsByPatient();
+    }
+
+    /**
      * Create an instance of {@link EncontrarEspecialidadResponse }
      * 
      */
     public EncontrarEspecialidadResponse createEncontrarEspecialidadResponse() {
         return new EncontrarEspecialidadResponse();
+    }
+
+    /**
+     * Create an instance of {@link CountPatientsByMedic }
+     * 
+     */
+    public CountPatientsByMedic createCountPatientsByMedic() {
+        return new CountPatientsByMedic();
     }
 
     /**
@@ -143,6 +169,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CountPatientsByMedicResponse }
+     * 
+     */
+    public CountPatientsByMedicResponse createCountPatientsByMedicResponse() {
+        return new CountPatientsByMedicResponse();
+    }
+
+    /**
      * Create an instance of {@link EncontrarEspecialidad }
      * 
      */
@@ -167,6 +201,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CountMedicsByShift }
+     * 
+     */
+    public CountMedicsByShift createCountMedicsByShift() {
+        return new CountMedicsByShift();
+    }
+
+    /**
+     * Create an instance of {@link CountMedicsBySpecialtyResponse }
+     * 
+     */
+    public CountMedicsBySpecialtyResponse createCountMedicsBySpecialtyResponse() {
+        return new CountMedicsBySpecialtyResponse();
+    }
+
+    /**
+     * Create an instance of {@link CountAppointmentsByPatientResponse }
+     * 
+     */
+    public CountAppointmentsByPatientResponse createCountAppointmentsByPatientResponse() {
+        return new CountAppointmentsByPatientResponse();
+    }
+
+    /**
      * Create an instance of {@link ListarMedicoByEspecialidadResponse }
      * 
      */
@@ -188,6 +246,14 @@ public class ObjectFactory {
      */
     public EncontrarAgenda createEncontrarAgenda() {
         return new EncontrarAgenda();
+    }
+
+    /**
+     * Create an instance of {@link PacientePorEspecialidad }
+     * 
+     */
+    public PacientePorEspecialidad createPacientePorEspecialidad() {
+        return new PacientePorEspecialidad();
     }
 
     /**
@@ -247,6 +313,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CountMedicsByShiftResponse }
+     * 
+     */
+    public CountMedicsByShiftResponse createCountMedicsByShiftResponse() {
+        return new CountMedicsByShiftResponse();
+    }
+
+    /**
+     * Create an instance of {@link PacientePorEspecialidadResponse }
+     * 
+     */
+    public PacientePorEspecialidadResponse createPacientePorEspecialidadResponse() {
+        return new PacientePorEspecialidadResponse();
+    }
+
+    /**
      * Create an instance of {@link ListarAgendaByMedico }
      * 
      */
@@ -300,6 +382,14 @@ public class ObjectFactory {
      */
     public Hello createHello() {
         return new Hello();
+    }
+
+    /**
+     * Create an instance of {@link CountMedicsBySpecialty }
+     * 
+     */
+    public CountMedicsBySpecialty createCountMedicsBySpecialty() {
+        return new CountMedicsBySpecialty();
     }
 
     /**
@@ -390,6 +480,33 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicios/", name = "hello")
     public JAXBElement<Hello> createHello(Hello value) {
         return new JAXBElement<Hello>(_Hello_QNAME, Hello.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CountMedicsBySpecialty }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "countMedicsBySpecialty")
+    public JAXBElement<CountMedicsBySpecialty> createCountMedicsBySpecialty(CountMedicsBySpecialty value) {
+        return new JAXBElement<CountMedicsBySpecialty>(_CountMedicsBySpecialty_QNAME, CountMedicsBySpecialty.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CountMedicsByShiftResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "countMedicsByShiftResponse")
+    public JAXBElement<CountMedicsByShiftResponse> createCountMedicsByShiftResponse(CountMedicsByShiftResponse value) {
+        return new JAXBElement<CountMedicsByShiftResponse>(_CountMedicsByShiftResponse_QNAME, CountMedicsByShiftResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link PacientePorEspecialidadResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "pacientePorEspecialidadResponse")
+    public JAXBElement<PacientePorEspecialidadResponse> createPacientePorEspecialidadResponse(PacientePorEspecialidadResponse value) {
+        return new JAXBElement<PacientePorEspecialidadResponse>(_PacientePorEspecialidadResponse_QNAME, PacientePorEspecialidadResponse.class, null, value);
     }
 
     /**
@@ -501,6 +618,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CountMedicsByShift }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "countMedicsByShift")
+    public JAXBElement<CountMedicsByShift> createCountMedicsByShift(CountMedicsByShift value) {
+        return new JAXBElement<CountMedicsByShift>(_CountMedicsByShift_QNAME, CountMedicsByShift.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CountMedicsBySpecialtyResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "countMedicsBySpecialtyResponse")
+    public JAXBElement<CountMedicsBySpecialtyResponse> createCountMedicsBySpecialtyResponse(CountMedicsBySpecialtyResponse value) {
+        return new JAXBElement<CountMedicsBySpecialtyResponse>(_CountMedicsBySpecialtyResponse_QNAME, CountMedicsBySpecialtyResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarUltimoRegistro }{@code >}}
      * 
      */
@@ -516,6 +651,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicios/", name = "encontrarAgenda")
     public JAXBElement<EncontrarAgenda> createEncontrarAgenda(EncontrarAgenda value) {
         return new JAXBElement<EncontrarAgenda>(_EncontrarAgenda_QNAME, EncontrarAgenda.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link PacientePorEspecialidad }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "pacientePorEspecialidad")
+    public JAXBElement<PacientePorEspecialidad> createPacientePorEspecialidad(PacientePorEspecialidad value) {
+        return new JAXBElement<PacientePorEspecialidad>(_PacientePorEspecialidad_QNAME, PacientePorEspecialidad.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CountAppointmentsByPatientResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "countAppointmentsByPatientResponse")
+    public JAXBElement<CountAppointmentsByPatientResponse> createCountAppointmentsByPatientResponse(CountAppointmentsByPatientResponse value) {
+        return new JAXBElement<CountAppointmentsByPatientResponse>(_CountAppointmentsByPatientResponse_QNAME, CountAppointmentsByPatientResponse.class, null, value);
     }
 
     /**
@@ -555,6 +708,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CountPatientsByMedicResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "countPatientsByMedicResponse")
+    public JAXBElement<CountPatientsByMedicResponse> createCountPatientsByMedicResponse(CountPatientsByMedicResponse value) {
+        return new JAXBElement<CountPatientsByMedicResponse>(_CountPatientsByMedicResponse_QNAME, CountPatientsByMedicResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePaciente }{@code >}}
      * 
      */
@@ -570,6 +732,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicios/", name = "encontrarEspecialidadResponse")
     public JAXBElement<EncontrarEspecialidadResponse> createEncontrarEspecialidadResponse(EncontrarEspecialidadResponse value) {
         return new JAXBElement<EncontrarEspecialidadResponse>(_EncontrarEspecialidadResponse_QNAME, EncontrarEspecialidadResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CountPatientsByMedic }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "countPatientsByMedic")
+    public JAXBElement<CountPatientsByMedic> createCountPatientsByMedic(CountPatientsByMedic value) {
+        return new JAXBElement<CountPatientsByMedic>(_CountPatientsByMedic_QNAME, CountPatientsByMedic.class, null, value);
     }
 
     /**
@@ -615,6 +786,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicios/", name = "listarEspecialidades")
     public JAXBElement<ListarEspecialidades> createListarEspecialidades(ListarEspecialidades value) {
         return new JAXBElement<ListarEspecialidades>(_ListarEspecialidades_QNAME, ListarEspecialidades.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CountAppointmentsByPatient }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "countAppointmentsByPatient")
+    public JAXBElement<CountAppointmentsByPatient> createCountAppointmentsByPatient(CountAppointmentsByPatient value) {
+        return new JAXBElement<CountAppointmentsByPatient>(_CountAppointmentsByPatient_QNAME, CountAppointmentsByPatient.class, null, value);
     }
 
     /**

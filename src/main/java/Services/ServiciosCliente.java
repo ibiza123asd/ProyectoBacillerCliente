@@ -97,4 +97,29 @@ public class ServiciosCliente {
         port.updatePaciente(paciente);
     }
     
+      public List<AnyTypeArray> countAppointmentsByPatient() {
+        Services_Service Service = new Services_Service();
+        Services port = Service.getServicesPort();
+        return port.countAppointmentsByPatient();
+    }
+      public List<AnyTypeArray> countMedicsByShift() {
+        Services_Service Service = new Services_Service();
+        Services port = Service.getServicesPort();
+        return port.countMedicsByShift();
+    }
+      public List<AnyTypeArray> countMedicsBySpecialty() {
+        Services_Service Service = new Services_Service();
+        Services port = Service.getServicesPort();
+        return port.countMedicsBySpecialty();
+    }
+      public List<AnyTypeArray> pacientePorEspecialidad() {
+        Services_Service Service = new Services_Service();
+        Services port = Service.getServicesPort();
+        return port.pacientePorEspecialidad();
+    }
+      public List<AnyTypeArray> countPatientsByMedic() {
+        Services_Service Service = new Services_Service();
+        Services port = Service.getServicesPort();
+        return port.countPatientsByMedic();
+    }
 }
