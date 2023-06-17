@@ -75,7 +75,7 @@
 
                 <!-- Nav Item - Medicos -->
                 <li class="nav-item">
-                    <a class="nav-link" href="adm_medico.jsp">
+                    <a class="nav-link" href="ControlCitas?accion=listarEspecialidades">
                         <i class="fas fa-fw fa-wrench"></i>
                         <span>Medicos</span></a>
                 </li>   
@@ -85,7 +85,7 @@
 
                 <!-- Nav Item - Agenda -->
                 <li class="nav-item">
-                    <a class="nav-link" href="adm_agenda.jsp">
+                    <a class="nav-link" href="ControlCitas?accion=listarMedicos">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Agenda</span></a>
                 </li>   

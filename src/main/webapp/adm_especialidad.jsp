@@ -1,4 +1,7 @@
 
+<%@page import="Services.Especialidad"%>
+<%@page import="Services.ServiciosCliente"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -8,6 +11,10 @@
     <meta charset="UTF-8">
     <title>Especialidades</title> 
 </head>
+<%
+
+    List<Especialidad> especialidades = new ServiciosCliente().listarEspecialidades();
+%>
 <body>
 
     <jsp:include page="adm_header.jsp" />
@@ -78,20 +85,20 @@
                 </div>
                 <div class="modal-body">
 
-                    <form class="user">
+                    <form class="user" method="Post" action="ControlCitas?accion=saveEspecialidad">
 
                         <div class="form-group">
                             <label class="form-label">Nombre:</label>                                
                             <input type="text" class="form-control form-control-sm" style="font-size: 16px;" id="nomEspecialidad" name="nomEspecialidad" required>
                         </div>
-
+                        <div class="modal-footer"> 
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" name="accion" value="saveEspecialidad">Guardar</button>
+                        </div>
                     </form>
 
                 </div>
-                <div class="modal-footer"> 
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" name="boton" value="btnInsEspec">Guardar</button>
-                </div>
+
             </div>
         </div>
     </div>

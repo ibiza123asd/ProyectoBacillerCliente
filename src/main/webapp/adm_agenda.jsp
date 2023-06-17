@@ -1,4 +1,7 @@
 
+<%@page import="Services.AnyTypeArray"%>
+<%@page import="java.util.List"%>
+<%@page import="Services.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -8,6 +11,10 @@
     <meta charset="UTF-8">
     <title>Agenda</title> 
 </head>
+<%
+    ServiciosCliente sc = new ServiciosCliente();
+    List<AnyTypeArray> medicos = (List) request.getAttribute("medicos");
+%>
 <body>
 
     <jsp:include page="adm_header.jsp" />
@@ -98,23 +105,35 @@
                 </div>
                 <div class="modal-body">
 
-                    <form class="user">
+                    <form class="user" method="post" action="ControlCitas?accion=saveAgenda">
 
                         <div class="form-group">
                             <label class="form-label">FECHA Y HORA</label>                                
-                            <input type="text" class="form-control form-control-sm" id="fhAgenda" name="fhAgenda" required>
+                            <input type="text" class="form-control form-control-sm" id="fhAgenda" name="fhAgenda" required  placeholder="Ingrese la fecha y hora (yyyy/MM/dd HH:mm:ss)">
                         </div>                            
 
                         <div class="form-group">
                             <label for="agenda" class="form-label">MEDICO</label>
-                            <select class="custom-select custom-select-sm form-control form-control-sm" id="idMedAgenda" name="idMedAgenda" style="width: 100%; padding: 0.9%;" >
-                                <option value="">Seleccione una Medico</option>
+                            <select class="custom-select custom-select-sm form-control form-control-sm" id="idMedAgenda" name="idMedico" style="width: 100%; padding: 0.9%;" >                                                                     
+                                <% for (AnyTypeArray medico : medicos) %><%{%>
+                                <%
+                                    Object[] medicoArray = medico.getItem().toArray();
+                                    Integer idMedico = (Integer) medicoArray[0];
+                                    String nombremedico = (String) medicoArray[1];
+                                    String apellidoMat = (String) medicoArray[2];
+                                    String apellidoPat = (String) medicoArray[3];
+                                %>
+                                <option value="<%=idMedico%>"><%=nombremedico +" "+apellidoPat+" " +apellidoMat%> </option>
+                                <%}%>    
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">TURNO</label>
-                            <input type="text" class="form-control form-control-sm" id="turnoAgenda" name="turnoAgenda">
+                            <select class="custom-select custom-select-sm form-control form-control-sm" id="idMedAgenda" name="nameAgenda" style="width: 100%; padding: 0.9%;" >                                                                     
+                                <option value="Mañana">Mañana</option>
+                                <option value="Tarde">Tarde</option>         
+                            </select>
                         </div>
 
                     </form>

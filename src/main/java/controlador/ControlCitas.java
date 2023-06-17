@@ -8,9 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Services.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.servlet.http.HttpSession;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 @WebServlet(name = "ControlCitas", urlPatterns = {"/ControlCitas"})
 public class ControlCitas extends HttpServlet {
@@ -74,6 +80,65 @@ public class ControlCitas extends HttpServlet {
             case "updatePass":
                 this.updatePass(req, resp);
                 break;
+            case "listarEspecialidades":
+                System.out.println("Entrando a listarespecialidades");
+                especialidades = sc.listarEspecialidades();
+                req.setAttribute("especialidades", especialidades);
+                req.getRequestDispatcher("/adm_medico.jsp").forward(req, resp);
+                break;
+            case "saveMedico":
+                String nombreMedico = req.getParameter("nomMedico");
+                String apellidoPaterno = req.getParameter("apePatMedico");
+                String apellidoMaterno = req.getParameter("apeMatMedico");
+                String telefono = req.getParameter("telfMedico");
+                int idM = Integer.parseInt(req.getParameter("idEspMedico"));
+                Medico medico = new Medico();
+                medico.setNombreMedico(nombreMedico);
+                medico.setApellidoPat(apellidoPaterno);
+                medico.setApellidoMat(apellidoMaterno);
+                medico.setTelefono(telefono);
+                Especialidad especialidad = new Especialidad();
+                especialidad.setIdEspecialidad(idM);
+                medico.setIdEspecialidad(especialidad);
+                sc.createMedico(medico);
+                break;
+            case "saveEspecialidad":
+                String nombreEspecialidad = req.getParameter("nomEspecialidad");
+                especialidad = new Especialidad();
+                especialidad.setNombreEspecialidad(nombreEspecialidad);
+                sc.createEspeciality(especialidad);
+                break;
+            case "listarMedicos":
+                System.out.println("Entrando a listar Medicos");
+                List<AnyTypeArray> listarMedicos = sc.listarMedicosP();
+                req.setAttribute("medicos", listarMedicos);
+                req.getRequestDispatcher("/adm_agenda.jsp").forward(req, resp);
+                break;
+            case "saveAgenda":
+                String fechaHoraStr = req.getParameter("fhAgenda");
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                Date fechaHora = null;
+                DatatypeFactory datatypeFactory = null;
+                try {
+                    fechaHora = dateFormat.parse(fechaHoraStr);
+                    datatypeFactory = DatatypeFactory.newInstance();
+                } catch (Exception exp) {
+                    exp.printStackTrace();
+                }
+                int idMedic = Integer.parseInt(req.getParameter("idMedico"));
+                String turno = req.getParameter("nameAgenda");
+                medico = new Medico();
+                medico.setIdMedico(idMedic);
+                Agenda agenda = new Agenda();            
+                GregorianCalendar calendar = new GregorianCalendar();
+                calendar.setTime(fechaHora);
+                XMLGregorianCalendar xmlfechaHora = datatypeFactory.newXMLGregorianCalendar(calendar);
+                agenda.setFechaHora(xmlfechaHora);
+                agenda.setIdMedico(medico);
+                agenda.setTurno(turno);             
+                sc.createAgenda(agenda);
+
+
         }
     }
 

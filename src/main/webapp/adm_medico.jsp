@@ -1,4 +1,6 @@
 
+<%@page import="Services.*"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -20,7 +22,7 @@
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">LISTA DE MEDICOS</h6>
 
-                <a class="btn btn-success btn-icon-split" href="#" data-toggle="modal" data-target="#xModal_NewMedico">
+                <a class="btn btn-success btn-icon-split" href="ControlCitas?accion=listarEspecialidades" data-toggle="modal" data-target="#xModal_NewMedico">
                     <span class="icon text-white-50">
                         <i class="fas fa-check"></i>
                     </span>
@@ -94,11 +96,11 @@
                 </div>
                 <div class="modal-body">
 
-                    <form class="user">
+                    <form class="user" method="Post" action="ControlCitas?accion=saveMedico">
 
                         <div class="form-group">
                             <label class="form-label">NOMBRES</label>                                
-                            <input type="text" class="form-control form-control-sm" id="nomMedico" name="nomEspecialidad" required>
+                            <input type="text" class="form-control form-control-sm" id="nomMedico" name="nomMedico" required>
                         </div>                            
 
                         <div class="form-group row">
@@ -121,16 +123,19 @@
                             <label for="agenda" class="form-label">ESPECIALIDAD:</label>
                             <select class="custom-select custom-select-sm form-control form-control-sm" id="idEspMedico" name="idEspMedico" style="width: 100%; padding: 0.9%;" >
                                 <option value="">Seleccione una Especialidad</option>
+                                <c:forEach var="especialidad" items="${especialidades}">
+                                    <option value="${especialidad.idEspecialidad}">${especialidad.nombreEspecialidad}</option>
+                                </c:forEach>
                             </select>
                         </div>
-
+                        <div class="modal-footer"> 
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>                    
+                            <button type="submit" class="btn btn-primary" name="accion" value="saveMedico">Guardar</button> 
+                        </div>
                     </form>
 
                 </div>
-                <div class="modal-footer"> 
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>                    
-                    <button type="submit" class="btn btn-primary" name="boton" value="btnInsMedico">Guardar</button> 
-                </div>
+
             </div>
         </div>
     </div>

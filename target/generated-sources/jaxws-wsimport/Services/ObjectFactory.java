@@ -44,24 +44,32 @@ public class ObjectFactory {
     private final static QName _CountMedicsByShift_QNAME = new QName("http://Servicios/", "countMedicsByShift");
     private final static QName _CountMedicsBySpecialtyResponse_QNAME = new QName("http://Servicios/", "countMedicsBySpecialtyResponse");
     private final static QName _EncontrarUltimoRegistro_QNAME = new QName("http://Servicios/", "encontrarUltimoRegistro");
+    private final static QName _CreateMedicResponse_QNAME = new QName("http://Servicios/", "createMedicResponse");
     private final static QName _EncontrarAgenda_QNAME = new QName("http://Servicios/", "encontrarAgenda");
     private final static QName _PacientePorEspecialidad_QNAME = new QName("http://Servicios/", "pacientePorEspecialidad");
     private final static QName _CountAppointmentsByPatientResponse_QNAME = new QName("http://Servicios/", "countAppointmentsByPatientResponse");
     private final static QName _ListarMedicoByEspecialidadResponse_QNAME = new QName("http://Servicios/", "listarMedicoByEspecialidadResponse");
     private final static QName _UpdatePacienteResponse_QNAME = new QName("http://Servicios/", "updatePacienteResponse");
+    private final static QName _CreateMedic_QNAME = new QName("http://Servicios/", "createMedic");
     private final static QName _EncontrarEspecialidad_QNAME = new QName("http://Servicios/", "encontrarEspecialidad");
     private final static QName _ListarEspecialidadesResponse_QNAME = new QName("http://Servicios/", "listarEspecialidadesResponse");
     private final static QName _CountPatientsByMedicResponse_QNAME = new QName("http://Servicios/", "countPatientsByMedicResponse");
+    private final static QName _ListarMedicosResponse_QNAME = new QName("http://Servicios/", "listarMedicosResponse");
     private final static QName _UpdatePaciente_QNAME = new QName("http://Servicios/", "updatePaciente");
+    private final static QName _ListarMedicos_QNAME = new QName("http://Servicios/", "listarMedicos");
+    private final static QName _CreateMAgendaResponse_QNAME = new QName("http://Servicios/", "createMAgendaResponse");
     private final static QName _EncontrarEspecialidadResponse_QNAME = new QName("http://Servicios/", "encontrarEspecialidadResponse");
     private final static QName _CountPatientsByMedic_QNAME = new QName("http://Servicios/", "countPatientsByMedic");
     private final static QName _EncontrarPaciente_QNAME = new QName("http://Servicios/", "encontrarPaciente");
     private final static QName _FindCitas_QNAME = new QName("http://Servicios/", "findCitas");
     private final static QName _ListarMedicoByEspecialidad_QNAME = new QName("http://Servicios/", "listarMedicoByEspecialidad");
     private final static QName _Logeo_QNAME = new QName("http://Servicios/", "logeo");
+    private final static QName _CreateMAgenda_QNAME = new QName("http://Servicios/", "createMAgenda");
     private final static QName _ListarEspecialidades_QNAME = new QName("http://Servicios/", "listarEspecialidades");
     private final static QName _CountAppointmentsByPatient_QNAME = new QName("http://Servicios/", "countAppointmentsByPatient");
     private final static QName _RegistrarPaciente_QNAME = new QName("http://Servicios/", "registrarPaciente");
+    private final static QName _CreateEspeciality_QNAME = new QName("http://Servicios/", "createEspeciality");
+    private final static QName _CreateEspecialityResponse_QNAME = new QName("http://Servicios/", "createEspecialityResponse");
     private final static QName _EncontrarMedico_QNAME = new QName("http://Servicios/", "encontrarMedico");
     private final static QName _LogeoResponse_QNAME = new QName("http://Servicios/", "logeoResponse");
 
@@ -73,6 +81,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CreateEspecialityResponse }
+     * 
+     */
+    public CreateEspecialityResponse createCreateEspecialityResponse() {
+        return new CreateEspecialityResponse();
+    }
+
+    /**
      * Create an instance of {@link EncontrarMedico }
      * 
      */
@@ -81,11 +97,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CreateEspeciality }
+     * 
+     */
+    public CreateEspeciality createCreateEspeciality() {
+        return new CreateEspeciality();
+    }
+
+    /**
      * Create an instance of {@link LogeoResponse }
      * 
      */
     public LogeoResponse createLogeoResponse() {
         return new LogeoResponse();
+    }
+
+    /**
+     * Create an instance of {@link CreateMAgenda }
+     * 
+     */
+    public CreateMAgenda createCreateMAgenda() {
+        return new CreateMAgenda();
     }
 
     /**
@@ -118,6 +150,14 @@ public class ObjectFactory {
      */
     public CountAppointmentsByPatient createCountAppointmentsByPatient() {
         return new CountAppointmentsByPatient();
+    }
+
+    /**
+     * Create an instance of {@link CreateMAgendaResponse }
+     * 
+     */
+    public CreateMAgendaResponse createCreateMAgendaResponse() {
+        return new CreateMAgendaResponse();
     }
 
     /**
@@ -177,11 +217,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CreateMedic }
+     * 
+     */
+    public CreateMedic createCreateMedic() {
+        return new CreateMedic();
+    }
+
+    /**
      * Create an instance of {@link EncontrarEspecialidad }
      * 
      */
     public EncontrarEspecialidad createEncontrarEspecialidad() {
         return new EncontrarEspecialidad();
+    }
+
+    /**
+     * Create an instance of {@link ListarMedicos }
+     * 
+     */
+    public ListarMedicos createListarMedicos() {
+        return new ListarMedicos();
+    }
+
+    /**
+     * Create an instance of {@link ListarMedicosResponse }
+     * 
+     */
+    public ListarMedicosResponse createListarMedicosResponse() {
+        return new ListarMedicosResponse();
     }
 
     /**
@@ -238,6 +302,14 @@ public class ObjectFactory {
      */
     public UpdatePacienteResponse createUpdatePacienteResponse() {
         return new UpdatePacienteResponse();
+    }
+
+    /**
+     * Create an instance of {@link CreateMedicResponse }
+     * 
+     */
+    public CreateMedicResponse createCreateMedicResponse() {
+        return new CreateMedicResponse();
     }
 
     /**
@@ -393,19 +465,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CitaDTO }
-     * 
-     */
-    public CitaDTO createCitaDTO() {
-        return new CitaDTO();
-    }
-
-    /**
      * Create an instance of {@link AgendaDTO }
      * 
      */
     public AgendaDTO createAgendaDTO() {
         return new AgendaDTO();
+    }
+
+    /**
+     * Create an instance of {@link Especialidad }
+     * 
+     */
+    public Especialidad createEspecialidad() {
+        return new Especialidad();
+    }
+
+    /**
+     * Create an instance of {@link CitaDTO }
+     * 
+     */
+    public CitaDTO createCitaDTO() {
+        return new CitaDTO();
     }
 
     /**
@@ -422,14 +502,6 @@ public class ObjectFactory {
      */
     public MedicoDTO createMedicoDTO() {
         return new MedicoDTO();
-    }
-
-    /**
-     * Create an instance of {@link Especialidad }
-     * 
-     */
-    public Especialidad createEspecialidad() {
-        return new Especialidad();
     }
 
     /**
@@ -645,6 +717,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateMedicResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "createMedicResponse")
+    public JAXBElement<CreateMedicResponse> createCreateMedicResponse(CreateMedicResponse value) {
+        return new JAXBElement<CreateMedicResponse>(_CreateMedicResponse_QNAME, CreateMedicResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarAgenda }{@code >}}
      * 
      */
@@ -690,6 +771,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateMedic }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "createMedic")
+    public JAXBElement<CreateMedic> createCreateMedic(CreateMedic value) {
+        return new JAXBElement<CreateMedic>(_CreateMedic_QNAME, CreateMedic.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarEspecialidad }{@code >}}
      * 
      */
@@ -717,12 +807,39 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarMedicosResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "listarMedicosResponse")
+    public JAXBElement<ListarMedicosResponse> createListarMedicosResponse(ListarMedicosResponse value) {
+        return new JAXBElement<ListarMedicosResponse>(_ListarMedicosResponse_QNAME, ListarMedicosResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePaciente }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://Servicios/", name = "updatePaciente")
     public JAXBElement<UpdatePaciente> createUpdatePaciente(UpdatePaciente value) {
         return new JAXBElement<UpdatePaciente>(_UpdatePaciente_QNAME, UpdatePaciente.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarMedicos }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "listarMedicos")
+    public JAXBElement<ListarMedicos> createListarMedicos(ListarMedicos value) {
+        return new JAXBElement<ListarMedicos>(_ListarMedicos_QNAME, ListarMedicos.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateMAgendaResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "createMAgendaResponse")
+    public JAXBElement<CreateMAgendaResponse> createCreateMAgendaResponse(CreateMAgendaResponse value) {
+        return new JAXBElement<CreateMAgendaResponse>(_CreateMAgendaResponse_QNAME, CreateMAgendaResponse.class, null, value);
     }
 
     /**
@@ -780,6 +897,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateMAgenda }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "createMAgenda")
+    public JAXBElement<CreateMAgenda> createCreateMAgenda(CreateMAgenda value) {
+        return new JAXBElement<CreateMAgenda>(_CreateMAgenda_QNAME, CreateMAgenda.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListarEspecialidades }{@code >}}
      * 
      */
@@ -804,6 +930,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicios/", name = "registrarPaciente")
     public JAXBElement<RegistrarPaciente> createRegistrarPaciente(RegistrarPaciente value) {
         return new JAXBElement<RegistrarPaciente>(_RegistrarPaciente_QNAME, RegistrarPaciente.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateEspeciality }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "createEspeciality")
+    public JAXBElement<CreateEspeciality> createCreateEspeciality(CreateEspeciality value) {
+        return new JAXBElement<CreateEspeciality>(_CreateEspeciality_QNAME, CreateEspeciality.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateEspecialityResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "createEspecialityResponse")
+    public JAXBElement<CreateEspecialityResponse> createCreateEspecialityResponse(CreateEspecialityResponse value) {
+        return new JAXBElement<CreateEspecialityResponse>(_CreateEspecialityResponse_QNAME, CreateEspecialityResponse.class, null, value);
     }
 
     /**
