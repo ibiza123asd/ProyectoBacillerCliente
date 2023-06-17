@@ -101,12 +101,14 @@ public class ControlCitas extends HttpServlet {
                 especialidad.setIdEspecialidad(idM);
                 medico.setIdEspecialidad(especialidad);
                 sc.createMedico(medico);
+                req.getRequestDispatcher("/adm_medico.jsp").forward(req, resp);
                 break;
             case "saveEspecialidad":
                 String nombreEspecialidad = req.getParameter("nomEspecialidad");
                 especialidad = new Especialidad();
                 especialidad.setNombreEspecialidad(nombreEspecialidad);
                 sc.createEspeciality(especialidad);
+                req.getRequestDispatcher("/adm_especialidad.jsp").forward(req, resp);
                 break;
             case "listarMedicos":
                 System.out.println("Entrando a listar Medicos");
@@ -129,15 +131,16 @@ public class ControlCitas extends HttpServlet {
                 String turno = req.getParameter("nameAgenda");
                 medico = new Medico();
                 medico.setIdMedico(idMedic);
-                Agenda agenda = new Agenda();            
+                Agenda agenda = new Agenda();
                 GregorianCalendar calendar = new GregorianCalendar();
                 calendar.setTime(fechaHora);
                 XMLGregorianCalendar xmlfechaHora = datatypeFactory.newXMLGregorianCalendar(calendar);
                 agenda.setFechaHora(xmlfechaHora);
                 agenda.setIdMedico(medico);
-                agenda.setTurno(turno);             
+                agenda.setTurno(turno);
                 sc.createAgenda(agenda);
-
+                req.getRequestDispatcher("/adm_agenda.jsp").forward(req, resp);
+                break;
 
         }
     }

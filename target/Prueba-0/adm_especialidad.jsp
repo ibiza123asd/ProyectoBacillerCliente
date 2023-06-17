@@ -45,22 +45,21 @@
                                 <th>NOMBRE</th>
                             </tr>
                         </thead>
+                         <tbody>
+                        <% for(Especialidad especialidad:especialidades){ %>
+                       
+                            <tr>
+                                <td><%= especialidad.getIdEspecialidad() %></td>
+                                <td><%= especialidad.getNombreEspecialidad() %></td>
+                            </tr>                                  
+                        <%}%>
+                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>ID</th>
                                 <th>NOMBRE</th>                                            
                             </tr>
                         </tfoot>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Medicina General</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Psicología</td>
-                            </tr>                                       
-                        </tbody>
                     </table>
 
                 </div>

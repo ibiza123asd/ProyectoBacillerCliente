@@ -39,7 +39,7 @@
             <div class="modal-body">Selecciona "Salir" si desear Cerrar Sesion.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-primary" href="#">Salir</a>
+                <a class="btn btn-primary" href="home.jsp">Salir</a>
             </div>
         </div>
     </div>

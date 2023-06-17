@@ -1,4 +1,8 @@
 
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="javax.xml.datatype.XMLGregorianCalendar"%>
+<%@page import="java.util.Date"%>
 <%@page import="Services.AnyTypeArray"%>
 <%@page import="java.util.List"%>
 <%@page import="Services.*"%>
@@ -13,7 +17,8 @@
 </head>
 <%
     ServiciosCliente sc = new ServiciosCliente();
-    List<AnyTypeArray> medicos = (List) request.getAttribute("medicos");
+    List<AnyTypeArray> medicos = (List) sc.listarMedicosP();
+    List<AnyTypeArray> agendas = (List) sc.listarAllAgendas();
 %>
 <body>
 
@@ -47,6 +52,30 @@
                                 <th>TURNO</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            <% for (AnyTypeArray agenda : agendas) { %>
+                            <%
+                                Object[] agendaArray = agenda.getItem().toArray();
+                                Integer idAgenda = (Integer) agendaArray[1];
+                                String nombremedico = (String) agendaArray[2];
+                                String apellidoMat = (String) agendaArray[3];
+                                String apellidoPat = (String) agendaArray[4];
+                                String turno = (String) agendaArray[5];
+
+                                XMLGregorianCalendar xmLCalendar = (XMLGregorianCalendar) agendaArray[0];
+                                LocalDateTime localDateTime = LocalDateTime.of(xmLCalendar.getYear(), xmLCalendar.getMonth(),
+                                        xmLCalendar.getDay(), xmLCalendar.getHour(), xmLCalendar.getMinute(), xmLCalendar.getSecond());
+                                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+                                String dateTimeString = localDateTime.format(formatter);
+                            %>
+                            <tr>
+                                <td><%=idAgenda%></td>
+                                <td><%=dateTimeString%></td>
+                                <td><%=nombremedico + " " + apellidoPat + " " + apellidoMat%></td>
+                                <td><%=turno%></td>
+                            </tr> 
+                            <%}%>
+                        </tbody>
                         <tfoot>
                             <tr>
                                 <th>ID</th>
@@ -55,32 +84,6 @@
                                 <th>TURNO</th>                                           
                             </tr>
                         </tfoot>
-                        <tbody>
-                            <tr>
-                                <td>2</td>
-                                <td>2023-05-28 08:30:00.000</td>
-                                <td>Fritz Frost Hicks</td>
-                                <td>Mañana</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>2023-05-28 09:00:00.000</td>
-                                <td>Fritz Frost Hicks</td>
-                                <td>Mañana</td>
-                            </tr> 
-                            <tr>
-                                <td>9</td>
-                                <td>2023-05-28 12:00:00.000</td>
-                                <td>Allen Tucker Rice</td>
-                                <td>Tarde</td>
-                            </tr> 
-                            <tr>
-                                <td>10</td>
-                                <td>2023-05-28 12:30:00.000</td>
-                                <td>Knox Mullins Foster</td>
-                                <td>Tarde</td>
-                            </tr>                             
-                        </tbody>
                     </table>
 
                 </div>
@@ -123,7 +126,7 @@
                                     String apellidoMat = (String) medicoArray[2];
                                     String apellidoPat = (String) medicoArray[3];
                                 %>
-                                <option value="<%=idMedico%>"><%=nombremedico +" "+apellidoPat+" " +apellidoMat%> </option>
+                                <option value="<%=idMedico%>"><%=nombremedico + " " + apellidoPat + " " + apellidoMat%> </option>
                                 <%}%>    
                             </select>
                         </div>
@@ -135,14 +138,14 @@
                                 <option value="Tarde">Tarde</option>         
                             </select>
                         </div>
-
+                        <div class="modal-footer"> 
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" name="boton" value="btnInsAgenda">Guardar</button> 
+                        </div>
                     </form>
 
                 </div>
-                <div class="modal-footer"> 
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" name="boton" value="btnInsAgenda">Guardar</button> 
-                </div>
+
             </div>
         </div>
     </div>

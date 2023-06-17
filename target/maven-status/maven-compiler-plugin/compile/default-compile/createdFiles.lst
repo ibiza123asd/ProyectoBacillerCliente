@@ -36,6 +36,7 @@ Services\UpdatePacienteResponse.class
 Services\EncontrarUltimoRegistro.class
 Services\CreateMAgenda.class
 Services\ListarMedicos.class
+Services\ListarAllAgenda.class
 Services\ListarEspecialidadesResponse.class
 Services\EncontrarMedico.class
 Services\Especialidad.class
@@ -63,3 +64,4 @@ Services\Services.class
 Services\RegistrarPaciente.class
 Services\EncontrarPaciente.class
 Services\EncontrarEspecialidadResponse.class
+Services\ListarAllAgendaResponse.class

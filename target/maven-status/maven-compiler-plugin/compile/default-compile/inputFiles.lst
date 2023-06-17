@@ -6,6 +6,7 @@ C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxw
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\EncontrarEspecialidadResponse.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\CountAppointmentsByPatient.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\EncontrarUltimoRegistro.java
+C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\ListarAllAgenda.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\ListarMedicoByEspecialidadResponse.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\CountMedicsBySpecialtyResponse.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\EncontrarCitaResponse.java
@@ -33,6 +34,7 @@ C:\Users\Brandon\Documents\NetBeansProjects\Prueba\src\main\java\controlador\JAX
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\PacientePorEspecialidadResponse.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\CreateEspeciality.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\UpdatePaciente.java
+C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\ListarAllAgendaResponse.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\Logeo.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\CreateMAgendaResponse.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\CountMedicsByShiftResponse.java

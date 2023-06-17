@@ -85,31 +85,10 @@
 
                 <!-- Nav Item - Agenda -->
                 <li class="nav-item">
-                    <a class="nav-link" href="ControlCitas?accion=listarMedicos">
+                    <a class="nav-link" href="adm_agenda.jsp">
                         <i class="fas fa-fw fa-table"></i>
                         <span>Agenda</span></a>
                 </li>   
-                
-                 <!-- Divider -->
-                <hr class="sidebar-divider my-0">    
-                
-                <!-- Nav Item - Pacientes -->
-                <li class="nav-item">
-                    <a class="nav-link" href="adm_pacientes.jsp">
-                        <i class="fas fa-fw fa-person-booth"></i>
-                        <span>Pacientes</span></a>
-                </li> 
-                
-                 <!-- Divider -->
-                <hr class="sidebar-divider my-0">    
-                
-                <!-- Nav Item - Citas -->
-                <li class="nav-item">
-                    <a class="nav-link" href="adm_citas.jsp">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Citas</span></a>
-                </li> 
-
                 <!-- Divider -->
                 <hr class="sidebar-divider">			
 
@@ -151,12 +130,12 @@
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                      aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="ControlCitas?accion=perfil">
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Perfil
                                     </a>                                
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal_Adm">
+                                    <a class="dropdown-item" href="ControlCitas?accion=cerrarSesion" data-toggle="modal" data-target="#logoutModal_Adm">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Cerrar Sesion
                                     </a>

@@ -148,4 +148,10 @@ public class ServiciosCliente {
         Services port = Service.getServicesPort();
         port.createMAgenda(agenda);
     }
+    
+    public List<AnyTypeArray> listarAllAgendas() {
+        Services_Service Service = new Services_Service();
+        Services port = Service.getServicesPort();
+        return port.listarAllAgenda();
+    }
 }

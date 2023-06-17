@@ -10,6 +10,10 @@
     <meta charset="UTF-8">
     <title>Medicos</title> 
 </head>
+<%
+
+    List<AnyTypeArray> medicos = (List) new ServiciosCliente().listarMedicosP();
+%>
 <body>
 
     <jsp:include page="adm_header.jsp" />
@@ -55,22 +59,25 @@
                             </tr>
                         </tfoot>
                         <tbody>
+                            <% for (AnyTypeArray medico : medicos) { %>
+                            <%
+                                Object[] medicoArray = medico.getItem().toArray();
+                                Integer idMedico = (Integer) medicoArray[0];
+                                String nombremedico = (String) medicoArray[1];
+                                String apellidoMat = (String) medicoArray[2];
+                                String apellidoPat = (String) medicoArray[3];
+                                String telefono =(String) medicoArray[4];
+                                String nameEspecialidad =(String) medicoArray[6];
+                            %>
                             <tr>
-                                <td>2</td>
-                                <td>Fritz Frost</td>
-                                <td>Hicks</td>
-                                <td>Tate</td>
-                                <td>(255) 226-5462</td>
-                                <td>Reumatología</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Keaton Perez</td>
-                                <td>Downs</td>
-                                <td>Geoffrey</td>
-                                <td>(157) 834-9508</td>
-                                <td>Obstetricia</td>
-                            </tr>                                        
+                                <td><%=idMedico%></td>
+                                <td><%=nombremedico%></td>
+                                <td><%=apellidoPat%></td>
+                                <td><%=apellidoMat%></td>
+                                <td><%=telefono%></td>
+                                <td><%=nameEspecialidad%></td>
+                            </tr> 
+                            <%}%>
                         </tbody>
                     </table>
 
