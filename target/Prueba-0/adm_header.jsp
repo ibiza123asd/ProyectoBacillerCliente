@@ -32,6 +32,10 @@
         <!-- Custom styles for this template-->
         <link href="Bmodelo/css/sb-admin-2.min.css" rel="stylesheet">
 
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
     </head>
 
     <body id="page-top">
@@ -69,8 +73,8 @@
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Especialidades</span></a>
                 </li>   
-                
-                 <!-- Divider -->
+
+                <!-- Divider -->
                 <hr class="sidebar-divider my-0">        
 
                 <!-- Nav Item - Medicos -->
@@ -79,8 +83,8 @@
                         <i class="fas fa-fw fa-wrench"></i>
                         <span>Medicos</span></a>
                 </li>   
-                
-                 <!-- Divider -->
+
+                <!-- Divider -->
                 <hr class="sidebar-divider my-0">        
 
                 <!-- Nav Item - Agenda -->
@@ -114,6 +118,7 @@
                             <i class="fa fa-bars"></i>
                         </button>
 
+
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">                            
 
@@ -121,20 +126,15 @@
 
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle" href="adm_dashboard.jsp" id="userDropdown" role="button"
+                                <a class="nav-link dropdown-toggle" href="ControlCitas?accion=adm_dashboard" id="userDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                                
-                                   <span class="mr-2 d-none d-lg-inline text-gray-600 small">JUAN CALIZAYA</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${paciente.nombre}  ${paciente.apellidoPaterno} ${paciente.apellidoMaterno} </span>
                                     <img class="img-profile rounded-circle"
                                          src="Bmodelo/img/undraw_profile.svg">
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                     aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="ControlCitas?accion=perfil">
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Perfil
-                                    </a>                                
-                                    <div class="dropdown-divider"></div>
+                                     aria-labelledby="userDropdown">                                    
                                     <a class="dropdown-item" href="ControlCitas?accion=cerrarSesion" data-toggle="modal" data-target="#logoutModal_Adm">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Cerrar Sesion
@@ -143,6 +143,8 @@
                             </li>
 
                         </ul>
+
+
 
                     </nav>
                     <!-- End of Topbar -->

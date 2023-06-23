@@ -38,21 +38,21 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDarkDropdown">
                 <c:if test="${paciente==null}">
                     <ul class="navbar-nav">                            
-                        <a href="adm_dashboard.jsp" class="btn btn-info btn-icon-split" style="height: 50px; line-height: 20px;">
+                        <a href="adm_login.jsp" class="btn btn-info btn-icon-split" style="width: max-content; margin: 2% 0%;">
                             <span class="icon text-white-50">
                                 <i class="fas fa-adjust"></i>
                             </span>
                             <span class="text">ADMINISTRADOR</span>
                         </a>
                         <div class="topbar-divider d-none d-sm-block"></div>
-                        <a href="ValidarSis.jsp" class="btn btn-warning btn-icon-split" style="height: 50px; line-height: 20px;">
+                        <a href="ValidarSis.jsp" class="btn btn-warning btn-icon-split" style="width: max-content; margin: 2% 0%;">
                             <span class="icon text-white-50">
                                 <i class="fas fa-check"></i>
                             </span>
                             <span class="text">VALIDAR SIS</span>
                         </a>
                         <div class="topbar-divider d-none d-sm-block"></div>
-                        <a href="login.jsp" class="btn btn-danger btn-sm btn-icon-split" style="height: 50px; line-height: 20px;">
+                        <a href="login.jsp" class="btn btn-danger btn-sm btn-icon-split" style="width: max-content; margin: 2% 0%;">
                             <span class="icon text-white-50">
                                 <i class="fas fa-flag"></i>
                             </span>

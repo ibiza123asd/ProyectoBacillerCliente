@@ -26,6 +26,8 @@ public class ControlCitas extends HttpServlet {
     PrintWriter out;
     List<Especialidad> especialidades;
     List<AnyTypeArray> listaCitas;
+    
+    String password;
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -42,7 +44,7 @@ public class ControlCitas extends HttpServlet {
                 break;
             case "login":
                 documento = req.getParameter("dni");
-                String password = req.getParameter("contrasena");
+                password = req.getParameter("contrasena");
                 this.login(req, resp, documento, password);
                 break;
             case "usuario":
@@ -141,6 +143,17 @@ public class ControlCitas extends HttpServlet {
                 sc.createAgenda(agenda);
                 req.getRequestDispatcher("/adm_agenda.jsp").forward(req, resp);
                 break;
+                
+            case "adm_login":
+                documento = req.getParameter("dni");
+                password = req.getParameter("contrasena");
+                this.adm_login(req, resp, documento, password);
+                break;
+                
+            case "adm_dashboard":
+                req.getRequestDispatcher("/adm_dashboard.jsp").forward(req, resp);
+                break;
+                
 
         }
     }
@@ -234,6 +247,17 @@ public class ControlCitas extends HttpServlet {
         } else {
             req.setAttribute("Resultado", "Credenciales incorrectos o No se encuentra afiliado al SIS");
             req.getRequestDispatcher("/login.jsp").forward(req, resp);
+        }
+    }
+    
+    public void adm_login(HttpServletRequest req, HttpServletResponse resp, String documento, String password) throws ServletException, IOException {
+        Paciente paciente = sc.encontrarPacientebyLogeo(documento, password);
+        if (paciente != null) {
+            sesion = req.getSession();            
+            req.getRequestDispatcher("/adm_dashboard.jsp").forward(req, resp);
+        } else {
+            req.setAttribute("Resultado", "Credenciales incorrectos o No se encuentra afiliado al SIS");
+            req.getRequestDispatcher("/adm_login.jsp").forward(req, resp);
         }
     }
 
