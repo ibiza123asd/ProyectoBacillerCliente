@@ -27,6 +27,231 @@ public interface Services {
 
     /**
      * 
+     * @param idEspecialidad
+     * @return
+     *     returns Services.Especialidad
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarEspecialidad", targetNamespace = "http://Servicios/", className = "Services.EncontrarEspecialidad")
+    @ResponseWrapper(localName = "encontrarEspecialidadResponse", targetNamespace = "http://Servicios/", className = "Services.EncontrarEspecialidadResponse")
+    @Action(input = "http://Servicios/Services/encontrarEspecialidadRequest", output = "http://Servicios/Services/encontrarEspecialidadResponse")
+    public Especialidad encontrarEspecialidad(
+        @WebParam(name = "idEspecialidad", targetNamespace = "")
+        int idEspecialidad);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "createEspeciality", targetNamespace = "http://Servicios/", className = "Services.CreateEspeciality")
+    @ResponseWrapper(localName = "createEspecialityResponse", targetNamespace = "http://Servicios/", className = "Services.CreateEspecialityResponse")
+    @Action(input = "http://Servicios/Services/createEspecialityRequest", output = "http://Servicios/Services/createEspecialityResponse")
+    public void createEspeciality(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Especialidad arg0);
+
+    /**
+     * 
+     * @param paciente
+     */
+    @WebMethod
+    @RequestWrapper(localName = "registrarPaciente", targetNamespace = "http://Servicios/", className = "Services.RegistrarPaciente")
+    @ResponseWrapper(localName = "registrarPacienteResponse", targetNamespace = "http://Servicios/", className = "Services.RegistrarPacienteResponse")
+    @Action(input = "http://Servicios/Services/registrarPacienteRequest", output = "http://Servicios/Services/registrarPacienteResponse")
+    public void registrarPaciente(
+        @WebParam(name = "paciente", targetNamespace = "")
+        Paciente paciente);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<Services.AnyTypeArray>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "countMedicsByShift", targetNamespace = "http://Servicios/", className = "Services.CountMedicsByShift")
+    @ResponseWrapper(localName = "countMedicsByShiftResponse", targetNamespace = "http://Servicios/", className = "Services.CountMedicsByShiftResponse")
+    @Action(input = "http://Servicios/Services/countMedicsByShiftRequest", output = "http://Servicios/Services/countMedicsByShiftResponse")
+    public List<AnyTypeArray> countMedicsByShift();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<Services.AnyTypeArray>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "countMedicsBySpecialty", targetNamespace = "http://Servicios/", className = "Services.CountMedicsBySpecialty")
+    @ResponseWrapper(localName = "countMedicsBySpecialtyResponse", targetNamespace = "http://Servicios/", className = "Services.CountMedicsBySpecialtyResponse")
+    @Action(input = "http://Servicios/Services/countMedicsBySpecialtyRequest", output = "http://Servicios/Services/countMedicsBySpecialtyResponse")
+    public List<AnyTypeArray> countMedicsBySpecialty();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<Services.AnyTypeArray>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "pacientePorEspecialidad", targetNamespace = "http://Servicios/", className = "Services.PacientePorEspecialidad")
+    @ResponseWrapper(localName = "pacientePorEspecialidadResponse", targetNamespace = "http://Servicios/", className = "Services.PacientePorEspecialidadResponse")
+    @Action(input = "http://Servicios/Services/pacientePorEspecialidadRequest", output = "http://Servicios/Services/pacientePorEspecialidadResponse")
+    public List<AnyTypeArray> pacientePorEspecialidad();
+
+    /**
+     * 
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarUltimoRegistro", targetNamespace = "http://Servicios/", className = "Services.EncontrarUltimoRegistro")
+    @ResponseWrapper(localName = "encontrarUltimoRegistroResponse", targetNamespace = "http://Servicios/", className = "Services.EncontrarUltimoRegistroResponse")
+    @Action(input = "http://Servicios/Services/encontrarUltimoRegistroRequest", output = "http://Servicios/Services/encontrarUltimoRegistroResponse")
+    public int encontrarUltimoRegistro();
+
+    /**
+     * 
+     * @param documento
+     * @return
+     *     returns Services.Paciente
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarPaciente", targetNamespace = "http://Servicios/", className = "Services.EncontrarPaciente")
+    @ResponseWrapper(localName = "encontrarPacienteResponse", targetNamespace = "http://Servicios/", className = "Services.EncontrarPacienteResponse")
+    @Action(input = "http://Servicios/Services/encontrarPacienteRequest", output = "http://Servicios/Services/encontrarPacienteResponse")
+    public Paciente encontrarPaciente(
+        @WebParam(name = "documento", targetNamespace = "")
+        String documento);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<Services.Especialidad>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarEspecialidades", targetNamespace = "http://Servicios/", className = "Services.ListarEspecialidades")
+    @ResponseWrapper(localName = "listarEspecialidadesResponse", targetNamespace = "http://Servicios/", className = "Services.ListarEspecialidadesResponse")
+    @Action(input = "http://Servicios/Services/listarEspecialidadesRequest", output = "http://Servicios/Services/listarEspecialidadesResponse")
+    public List<Especialidad> listarEspecialidades();
+
+    /**
+     * 
+     * @param codMedico
+     * @return
+     *     returns java.util.List<Services.AgendaDTO>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarAgendaByMedico", targetNamespace = "http://Servicios/", className = "Services.ListarAgendaByMedico")
+    @ResponseWrapper(localName = "listarAgendaByMedicoResponse", targetNamespace = "http://Servicios/", className = "Services.ListarAgendaByMedicoResponse")
+    @Action(input = "http://Servicios/Services/listarAgendaByMedicoRequest", output = "http://Servicios/Services/listarAgendaByMedicoResponse")
+    public List<AgendaDTO> listarAgendaByMedico(
+        @WebParam(name = "codMedico", targetNamespace = "")
+        int codMedico);
+
+    /**
+     * 
+     * @param codEspecialidad
+     * @return
+     *     returns java.util.List<Services.MedicoDTO>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarMedicoByEspecialidad", targetNamespace = "http://Servicios/", className = "Services.ListarMedicoByEspecialidad")
+    @ResponseWrapper(localName = "listarMedicoByEspecialidadResponse", targetNamespace = "http://Servicios/", className = "Services.ListarMedicoByEspecialidadResponse")
+    @Action(input = "http://Servicios/Services/listarMedicoByEspecialidadRequest", output = "http://Servicios/Services/listarMedicoByEspecialidadResponse")
+    public List<MedicoDTO> listarMedicoByEspecialidad(
+        @WebParam(name = "codEspecialidad", targetNamespace = "")
+        int codEspecialidad);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<Services.AnyTypeArray>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "countPatientsByMedic", targetNamespace = "http://Servicios/", className = "Services.CountPatientsByMedic")
+    @ResponseWrapper(localName = "countPatientsByMedicResponse", targetNamespace = "http://Servicios/", className = "Services.CountPatientsByMedicResponse")
+    @Action(input = "http://Servicios/Services/countPatientsByMedicRequest", output = "http://Servicios/Services/countPatientsByMedicResponse")
+    public List<AnyTypeArray> countPatientsByMedic();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<Services.AnyTypeArray>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "countAppointmentsByPatient", targetNamespace = "http://Servicios/", className = "Services.CountAppointmentsByPatient")
+    @ResponseWrapper(localName = "countAppointmentsByPatientResponse", targetNamespace = "http://Servicios/", className = "Services.CountAppointmentsByPatientResponse")
+    @Action(input = "http://Servicios/Services/countAppointmentsByPatientRequest", output = "http://Servicios/Services/countAppointmentsByPatientResponse")
+    public List<AnyTypeArray> countAppointmentsByPatient();
+
+    /**
+     * 
+     * @param idMedico
+     * @return
+     *     returns Services.MedicoDTO
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarMedico", targetNamespace = "http://Servicios/", className = "Services.EncontrarMedico")
+    @ResponseWrapper(localName = "encontrarMedicoResponse", targetNamespace = "http://Servicios/", className = "Services.EncontrarMedicoResponse")
+    @Action(input = "http://Servicios/Services/encontrarMedicoRequest", output = "http://Servicios/Services/encontrarMedicoResponse")
+    public MedicoDTO encontrarMedico(
+        @WebParam(name = "idMedico", targetNamespace = "")
+        int idMedico);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<Services.AnyTypeArray>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarAllAgenda", targetNamespace = "http://Servicios/", className = "Services.ListarAllAgenda")
+    @ResponseWrapper(localName = "listarAllAgendaResponse", targetNamespace = "http://Servicios/", className = "Services.ListarAllAgendaResponse")
+    @Action(input = "http://Servicios/Services/listarAllAgendaRequest", output = "http://Servicios/Services/listarAllAgendaResponse")
+    public List<AnyTypeArray> listarAllAgenda();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<Services.AnyTypeArray>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "listarMedicos", targetNamespace = "http://Servicios/", className = "Services.ListarMedicos")
+    @ResponseWrapper(localName = "listarMedicosResponse", targetNamespace = "http://Servicios/", className = "Services.ListarMedicosResponse")
+    @Action(input = "http://Servicios/Services/listarMedicosRequest", output = "http://Servicios/Services/listarMedicosResponse")
+    public List<AnyTypeArray> listarMedicos();
+
+    /**
+     * 
+     * @param password
+     * @param documento
+     * @return
+     *     returns Services.Paciente
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "logeo", targetNamespace = "http://Servicios/", className = "Services.Logeo")
+    @ResponseWrapper(localName = "logeoResponse", targetNamespace = "http://Servicios/", className = "Services.LogeoResponse")
+    @Action(input = "http://Servicios/Services/logeoRequest", output = "http://Servicios/Services/logeoResponse")
+    public Paciente logeo(
+        @WebParam(name = "documento", targetNamespace = "")
+        String documento,
+        @WebParam(name = "password", targetNamespace = "")
+        String password);
+
+    /**
+     * 
      * @param name
      * @return
      *     returns java.lang.String
@@ -42,6 +267,21 @@ public interface Services {
 
     /**
      * 
+     * @param idAgenda
+     * @return
+     *     returns Services.AgendaDTO
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "encontrarAgenda", targetNamespace = "http://Servicios/", className = "Services.EncontrarAgenda")
+    @ResponseWrapper(localName = "encontrarAgendaResponse", targetNamespace = "http://Servicios/", className = "Services.EncontrarAgendaResponse")
+    @Action(input = "http://Servicios/Services/encontrarAgendaRequest", output = "http://Servicios/Services/encontrarAgendaResponse")
+    public AgendaDTO encontrarAgenda(
+        @WebParam(name = "idAgenda", targetNamespace = "")
+        int idAgenda);
+
+    /**
+     * 
      * @param paciente
      */
     @WebMethod
@@ -51,6 +291,30 @@ public interface Services {
     public void updatePaciente(
         @WebParam(name = "paciente", targetNamespace = "")
         Paciente paciente);
+
+    /**
+     * 
+     * @param cita
+     */
+    @WebMethod
+    @RequestWrapper(localName = "registrarCita", targetNamespace = "http://Servicios/", className = "Services.RegistrarCita")
+    @ResponseWrapper(localName = "registrarCitaResponse", targetNamespace = "http://Servicios/", className = "Services.RegistrarCitaResponse")
+    @Action(input = "http://Servicios/Services/registrarCitaRequest", output = "http://Servicios/Services/registrarCitaResponse")
+    public void registrarCita(
+        @WebParam(name = "cita", targetNamespace = "")
+        Cita cita);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "createMedic", targetNamespace = "http://Servicios/", className = "Services.CreateMedic")
+    @ResponseWrapper(localName = "createMedicResponse", targetNamespace = "http://Servicios/", className = "Services.CreateMedicResponse")
+    @Action(input = "http://Servicios/Services/createMedicRequest", output = "http://Servicios/Services/createMedicResponse")
+    public void createMedic(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Medico arg0);
 
     /**
      * 
@@ -84,63 +348,6 @@ public interface Services {
 
     /**
      * 
-     * @param cita
-     */
-    @WebMethod
-    @RequestWrapper(localName = "registrarCita", targetNamespace = "http://Servicios/", className = "Services.RegistrarCita")
-    @ResponseWrapper(localName = "registrarCitaResponse", targetNamespace = "http://Servicios/", className = "Services.RegistrarCitaResponse")
-    @Action(input = "http://Servicios/Services/registrarCitaRequest", output = "http://Servicios/Services/registrarCitaResponse")
-    public void registrarCita(
-        @WebParam(name = "cita", targetNamespace = "")
-        Cita cita);
-
-    /**
-     * 
-     * @param idAgenda
-     * @return
-     *     returns Services.AgendaDTO
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarAgenda", targetNamespace = "http://Servicios/", className = "Services.EncontrarAgenda")
-    @ResponseWrapper(localName = "encontrarAgendaResponse", targetNamespace = "http://Servicios/", className = "Services.EncontrarAgendaResponse")
-    @Action(input = "http://Servicios/Services/encontrarAgendaRequest", output = "http://Servicios/Services/encontrarAgendaResponse")
-    public AgendaDTO encontrarAgenda(
-        @WebParam(name = "idAgenda", targetNamespace = "")
-        int idAgenda);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "createMedic", targetNamespace = "http://Servicios/", className = "Services.CreateMedic")
-    @ResponseWrapper(localName = "createMedicResponse", targetNamespace = "http://Servicios/", className = "Services.CreateMedicResponse")
-    @Action(input = "http://Servicios/Services/createMedicRequest", output = "http://Servicios/Services/createMedicResponse")
-    public void createMedic(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Medico arg0);
-
-    /**
-     * 
-     * @param password
-     * @param documento
-     * @return
-     *     returns Services.Paciente
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "logeo", targetNamespace = "http://Servicios/", className = "Services.Logeo")
-    @ResponseWrapper(localName = "logeoResponse", targetNamespace = "http://Servicios/", className = "Services.LogeoResponse")
-    @Action(input = "http://Servicios/Services/logeoRequest", output = "http://Servicios/Services/logeoResponse")
-    public Paciente logeo(
-        @WebParam(name = "documento", targetNamespace = "")
-        String documento,
-        @WebParam(name = "password", targetNamespace = "")
-        String password);
-
-    /**
-     * 
      * @param arg0
      */
     @WebMethod
@@ -150,212 +357,5 @@ public interface Services {
     public void createMAgenda(
         @WebParam(name = "arg0", targetNamespace = "")
         Agenda arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<Services.AnyTypeArray>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarMedicos", targetNamespace = "http://Servicios/", className = "Services.ListarMedicos")
-    @ResponseWrapper(localName = "listarMedicosResponse", targetNamespace = "http://Servicios/", className = "Services.ListarMedicosResponse")
-    @Action(input = "http://Servicios/Services/listarMedicosRequest", output = "http://Servicios/Services/listarMedicosResponse")
-    public List<AnyTypeArray> listarMedicos();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<Services.AnyTypeArray>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarAllAgenda", targetNamespace = "http://Servicios/", className = "Services.ListarAllAgenda")
-    @ResponseWrapper(localName = "listarAllAgendaResponse", targetNamespace = "http://Servicios/", className = "Services.ListarAllAgendaResponse")
-    @Action(input = "http://Servicios/Services/listarAllAgendaRequest", output = "http://Servicios/Services/listarAllAgendaResponse")
-    public List<AnyTypeArray> listarAllAgenda();
-
-    /**
-     * 
-     * @param idMedico
-     * @return
-     *     returns Services.MedicoDTO
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarMedico", targetNamespace = "http://Servicios/", className = "Services.EncontrarMedico")
-    @ResponseWrapper(localName = "encontrarMedicoResponse", targetNamespace = "http://Servicios/", className = "Services.EncontrarMedicoResponse")
-    @Action(input = "http://Servicios/Services/encontrarMedicoRequest", output = "http://Servicios/Services/encontrarMedicoResponse")
-    public MedicoDTO encontrarMedico(
-        @WebParam(name = "idMedico", targetNamespace = "")
-        int idMedico);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<Services.Especialidad>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarEspecialidades", targetNamespace = "http://Servicios/", className = "Services.ListarEspecialidades")
-    @ResponseWrapper(localName = "listarEspecialidadesResponse", targetNamespace = "http://Servicios/", className = "Services.ListarEspecialidadesResponse")
-    @Action(input = "http://Servicios/Services/listarEspecialidadesRequest", output = "http://Servicios/Services/listarEspecialidadesResponse")
-    public List<Especialidad> listarEspecialidades();
-
-    /**
-     * 
-     * @param codEspecialidad
-     * @return
-     *     returns java.util.List<Services.MedicoDTO>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarMedicoByEspecialidad", targetNamespace = "http://Servicios/", className = "Services.ListarMedicoByEspecialidad")
-    @ResponseWrapper(localName = "listarMedicoByEspecialidadResponse", targetNamespace = "http://Servicios/", className = "Services.ListarMedicoByEspecialidadResponse")
-    @Action(input = "http://Servicios/Services/listarMedicoByEspecialidadRequest", output = "http://Servicios/Services/listarMedicoByEspecialidadResponse")
-    public List<MedicoDTO> listarMedicoByEspecialidad(
-        @WebParam(name = "codEspecialidad", targetNamespace = "")
-        int codEspecialidad);
-
-    /**
-     * 
-     * @param codMedico
-     * @return
-     *     returns java.util.List<Services.AgendaDTO>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "listarAgendaByMedico", targetNamespace = "http://Servicios/", className = "Services.ListarAgendaByMedico")
-    @ResponseWrapper(localName = "listarAgendaByMedicoResponse", targetNamespace = "http://Servicios/", className = "Services.ListarAgendaByMedicoResponse")
-    @Action(input = "http://Servicios/Services/listarAgendaByMedicoRequest", output = "http://Servicios/Services/listarAgendaByMedicoResponse")
-    public List<AgendaDTO> listarAgendaByMedico(
-        @WebParam(name = "codMedico", targetNamespace = "")
-        int codMedico);
-
-    /**
-     * 
-     * @return
-     *     returns int
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarUltimoRegistro", targetNamespace = "http://Servicios/", className = "Services.EncontrarUltimoRegistro")
-    @ResponseWrapper(localName = "encontrarUltimoRegistroResponse", targetNamespace = "http://Servicios/", className = "Services.EncontrarUltimoRegistroResponse")
-    @Action(input = "http://Servicios/Services/encontrarUltimoRegistroRequest", output = "http://Servicios/Services/encontrarUltimoRegistroResponse")
-    public int encontrarUltimoRegistro();
-
-    /**
-     * 
-     * @param paciente
-     */
-    @WebMethod
-    @RequestWrapper(localName = "registrarPaciente", targetNamespace = "http://Servicios/", className = "Services.RegistrarPaciente")
-    @ResponseWrapper(localName = "registrarPacienteResponse", targetNamespace = "http://Servicios/", className = "Services.RegistrarPacienteResponse")
-    @Action(input = "http://Servicios/Services/registrarPacienteRequest", output = "http://Servicios/Services/registrarPacienteResponse")
-    public void registrarPaciente(
-        @WebParam(name = "paciente", targetNamespace = "")
-        Paciente paciente);
-
-    /**
-     * 
-     * @param documento
-     * @return
-     *     returns Services.Paciente
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarPaciente", targetNamespace = "http://Servicios/", className = "Services.EncontrarPaciente")
-    @ResponseWrapper(localName = "encontrarPacienteResponse", targetNamespace = "http://Servicios/", className = "Services.EncontrarPacienteResponse")
-    @Action(input = "http://Servicios/Services/encontrarPacienteRequest", output = "http://Servicios/Services/encontrarPacienteResponse")
-    public Paciente encontrarPaciente(
-        @WebParam(name = "documento", targetNamespace = "")
-        String documento);
-
-    /**
-     * 
-     * @param idEspecialidad
-     * @return
-     *     returns Services.Especialidad
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "encontrarEspecialidad", targetNamespace = "http://Servicios/", className = "Services.EncontrarEspecialidad")
-    @ResponseWrapper(localName = "encontrarEspecialidadResponse", targetNamespace = "http://Servicios/", className = "Services.EncontrarEspecialidadResponse")
-    @Action(input = "http://Servicios/Services/encontrarEspecialidadRequest", output = "http://Servicios/Services/encontrarEspecialidadResponse")
-    public Especialidad encontrarEspecialidad(
-        @WebParam(name = "idEspecialidad", targetNamespace = "")
-        int idEspecialidad);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<Services.AnyTypeArray>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "pacientePorEspecialidad", targetNamespace = "http://Servicios/", className = "Services.PacientePorEspecialidad")
-    @ResponseWrapper(localName = "pacientePorEspecialidadResponse", targetNamespace = "http://Servicios/", className = "Services.PacientePorEspecialidadResponse")
-    @Action(input = "http://Servicios/Services/pacientePorEspecialidadRequest", output = "http://Servicios/Services/pacientePorEspecialidadResponse")
-    public List<AnyTypeArray> pacientePorEspecialidad();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<Services.AnyTypeArray>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "countAppointmentsByPatient", targetNamespace = "http://Servicios/", className = "Services.CountAppointmentsByPatient")
-    @ResponseWrapper(localName = "countAppointmentsByPatientResponse", targetNamespace = "http://Servicios/", className = "Services.CountAppointmentsByPatientResponse")
-    @Action(input = "http://Servicios/Services/countAppointmentsByPatientRequest", output = "http://Servicios/Services/countAppointmentsByPatientResponse")
-    public List<AnyTypeArray> countAppointmentsByPatient();
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "createEspeciality", targetNamespace = "http://Servicios/", className = "Services.CreateEspeciality")
-    @ResponseWrapper(localName = "createEspecialityResponse", targetNamespace = "http://Servicios/", className = "Services.CreateEspecialityResponse")
-    @Action(input = "http://Servicios/Services/createEspecialityRequest", output = "http://Servicios/Services/createEspecialityResponse")
-    public void createEspeciality(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Especialidad arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<Services.AnyTypeArray>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "countPatientsByMedic", targetNamespace = "http://Servicios/", className = "Services.CountPatientsByMedic")
-    @ResponseWrapper(localName = "countPatientsByMedicResponse", targetNamespace = "http://Servicios/", className = "Services.CountPatientsByMedicResponse")
-    @Action(input = "http://Servicios/Services/countPatientsByMedicRequest", output = "http://Servicios/Services/countPatientsByMedicResponse")
-    public List<AnyTypeArray> countPatientsByMedic();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<Services.AnyTypeArray>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "countMedicsBySpecialty", targetNamespace = "http://Servicios/", className = "Services.CountMedicsBySpecialty")
-    @ResponseWrapper(localName = "countMedicsBySpecialtyResponse", targetNamespace = "http://Servicios/", className = "Services.CountMedicsBySpecialtyResponse")
-    @Action(input = "http://Servicios/Services/countMedicsBySpecialtyRequest", output = "http://Servicios/Services/countMedicsBySpecialtyResponse")
-    public List<AnyTypeArray> countMedicsBySpecialty();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<Services.AnyTypeArray>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "countMedicsByShift", targetNamespace = "http://Servicios/", className = "Services.CountMedicsByShift")
-    @ResponseWrapper(localName = "countMedicsByShiftResponse", targetNamespace = "http://Servicios/", className = "Services.CountMedicsByShiftResponse")
-    @Action(input = "http://Servicios/Services/countMedicsByShiftRequest", output = "http://Servicios/Services/countMedicsByShiftResponse")
-    public List<AnyTypeArray> countMedicsByShift();
 
 }

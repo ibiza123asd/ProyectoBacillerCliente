@@ -60,6 +60,7 @@ Services\Services_Service.class
 Services\EncontrarAgendaResponse.class
 Services\HelloResponse.class
 Services\EncontrarPacienteResponse.class
+controlador\psvm.class
 Services\Services.class
 Services\RegistrarPaciente.class
 Services\EncontrarPaciente.class

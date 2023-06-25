@@ -3,7 +3,9 @@ package Services;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -17,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="costoCita" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+ *         &lt;element name="fechaHora" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *         &lt;element name="idCita" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="idMedico" type="{http://Servicios/}medico" minOccurs="0"/>
  *         &lt;element name="idPaciente" type="{http://Servicios/}paciente" minOccurs="0"/>
@@ -32,6 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "cita", propOrder = {
     "costoCita",
+    "fechaHora",
     "idCita",
     "idMedico",
     "idPaciente",
@@ -40,6 +44,8 @@ import javax.xml.bind.annotation.XmlType;
 public class Cita {
 
     protected Double costoCita;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar fechaHora;
     protected Integer idCita;
     protected Medico idMedico;
     protected Paciente idPaciente;
@@ -67,6 +73,30 @@ public class Cita {
      */
     public void setCostoCita(Double value) {
         this.costoCita = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad fechaHora.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getFechaHora() {
+        return fechaHora;
+    }
+
+    /**
+     * Define el valor de la propiedad fechaHora.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setFechaHora(XMLGregorianCalendar value) {
+        this.fechaHora = value;
     }
 
     /**

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import Services.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,12 +27,12 @@ public class ControlCitas extends HttpServlet {
     PrintWriter out;
     List<Especialidad> especialidades;
     List<AnyTypeArray> listaCitas;
-    
+
     String password;
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        req.setCharacterEncoding("UTF-8");
         String accion = req.getParameter("accion");
         String documento;
         switch (accion) {
@@ -119,41 +120,46 @@ public class ControlCitas extends HttpServlet {
                 req.getRequestDispatcher("/adm_agenda.jsp").forward(req, resp);
                 break;
             case "saveAgenda":
-                String fechaHoraStr = req.getParameter("fhAgenda");
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                Date fechaHora = null;
-                DatatypeFactory datatypeFactory = null;
-                try {
-                    fechaHora = dateFormat.parse(fechaHoraStr);
-                    datatypeFactory = DatatypeFactory.newInstance();
-                } catch (Exception exp) {
-                    exp.printStackTrace();
-                }
                 int idMedic = Integer.parseInt(req.getParameter("idMedico"));
                 String turno = req.getParameter("nameAgenda");
+                System.out.println("El turno es: " + turno);
                 medico = new Medico();
                 medico.setIdMedico(idMedic);
                 Agenda agenda = new Agenda();
+                String fechaHoraStr = req.getParameter("fhAgenda");
+                System.out.println("La agenda es:" + fechaHoraStr);
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                Date fechaHora = null;
+                DatatypeFactory datatypeFactory = null;
+                XMLGregorianCalendar xmlfechaHora = null;
                 GregorianCalendar calendar = new GregorianCalendar();
-                calendar.setTime(fechaHora);
-                XMLGregorianCalendar xmlfechaHora = datatypeFactory.newXMLGregorianCalendar(calendar);
+
+                try {
+                    fechaHora = dateFormat.parse(fechaHoraStr);
+                    calendar.setTime(fechaHora);
+                    System.out.println("La fechaHora:" + fechaHora);
+                    // datatypeFactory = DatatypeFactory.newInstance();
+                    xmlfechaHora = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
+                } catch (ParseException | DatatypeConfigurationException exp) {
+                    exp.printStackTrace();
+                }
                 agenda.setFechaHora(xmlfechaHora);
                 agenda.setIdMedico(medico);
                 agenda.setTurno(turno);
                 sc.createAgenda(agenda);
                 req.getRequestDispatcher("/adm_agenda.jsp").forward(req, resp);
                 break;
-                
+
             case "adm_login":
                 documento = req.getParameter("dni");
                 password = req.getParameter("contrasena");
                 this.adm_login(req, resp, documento, password);
                 break;
-                
+
             case "adm_dashboard":
                 req.getRequestDispatcher("/adm_dashboard.jsp").forward(req, resp);
                 break;
-                
 
         }
     }
@@ -249,11 +255,11 @@ public class ControlCitas extends HttpServlet {
             req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
     }
-    
+
     public void adm_login(HttpServletRequest req, HttpServletResponse resp, String documento, String password) throws ServletException, IOException {
         Paciente paciente = sc.encontrarPacientebyLogeo(documento, password);
         if (paciente != null) {
-            sesion = req.getSession();            
+            sesion = req.getSession();
             req.getRequestDispatcher("/adm_dashboard.jsp").forward(req, resp);
         } else {
             req.setAttribute("Resultado", "Credenciales incorrectos o No se encuentra afiliado al SIS");
@@ -314,6 +320,9 @@ public class ControlCitas extends HttpServlet {
         int especialidad = Integer.parseInt(req.getParameter("especialidad"));
         int medico = Integer.parseInt(req.getParameter("medicos"));
         int agenda = Integer.parseInt(req.getParameter("agenda"));
+        AgendaDTO agendaDTO = sc.encontrarAgenda(agenda);
+        String fechaHora = agendaDTO.getFechaHora();
+        System.out.println("La fechahoraes:" + fechaHora);
         String documento = req.getParameter("documento");
         double MONTO = 15.99;
         Cita cita = new Cita();
@@ -325,13 +334,26 @@ public class ControlCitas extends HttpServlet {
         Medico medicod = new Medico();
         medicod.setIdMedico(medicodto.getIdMedico());
         cita.setIdMedico(medicod);
-        cita.setOrden(1);
+        cita.setOrden(0);
         cita.setIdPaciente(paciente);
         cita.setCostoCita(MONTO);
-        sc.registrarCita(cita);
+        XMLGregorianCalendar xmlfechaHora = this.ConversionFechaHra(fechaHora);
+        cita.setFechaHora(xmlfechaHora);
+        String error = null;
+        try{
+            sc.registrarCita(cita);
+        }catch(Exception exp){
+            exp.printStackTrace();
+            error = "La fecha ya se encuentra ocupada o ha excedido el limite de citas por dia, intenta con otra fecha o con otro medico";
+        }
+        
+        if(error!=null){
+            req.setAttribute("error", error);
+            req.getRequestDispatcher("/FormularioCita.jsp").forward(req, resp);
+        }
         int ultimaCita = sc.encontrarUltimaCita();
         Especialidad especialidadp = sc.encontrarEspecialidad(especialidad);
-        AgendaDTO agendaDTO = sc.encontrarAgenda(agenda);
+
         req.setAttribute("ultimacita", ultimaCita);
         req.setAttribute("Medico", medicodto.getNombreMedico());
         req.setAttribute("Especialidad", especialidadp.getNombreEspecialidad());
@@ -342,6 +364,26 @@ public class ControlCitas extends HttpServlet {
         req.setAttribute("documentodni", paciente.getDni());
         req.setAttribute("monto", MONTO);
         req.getRequestDispatcher("/ticket.jsp").forward(req, resp);
+    }
+
+    public XMLGregorianCalendar ConversionFechaHra(String fechaHoraStr) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date fechaHora = null;
+        DatatypeFactory datatypeFactory = null;
+        XMLGregorianCalendar xmlfechaHora = null;
+        GregorianCalendar calendar = new GregorianCalendar();
+
+        try {
+            fechaHora = dateFormat.parse(fechaHoraStr);
+            calendar.setTime(fechaHora);
+            System.out.println("La fechaHora:" + fechaHora);
+            // datatypeFactory = DatatypeFactory.newInstance();
+            xmlfechaHora = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
+        } catch (ParseException | DatatypeConfigurationException exp) {
+            exp.printStackTrace();
+        }
+
+        return xmlfechaHora;
     }
 
     public String validarApiSIS(String documento) {

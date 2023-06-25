@@ -13,12 +13,15 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src="funciones.js" type="text/javascript"></script>
     <title>Agenda</title> 
 </head>
 <%
     ServiciosCliente sc = new ServiciosCliente();
     List<AnyTypeArray> medicos = (List) sc.listarMedicosP();
     List<AnyTypeArray> agendas = (List) sc.listarAllAgendas();
+    List<Especialidad> especialidades = sc.listarEspecialidades();
+    request.setAttribute("especialidades", especialidades);
 %>
 <body>
 
@@ -113,9 +116,24 @@
                         <div class="form-group">
                             <label class="form-label">FECHA Y HORA</label>                                
                             <input type="text" class="form-control form-control-sm" id="fhAgenda" name="fhAgenda" required  placeholder="Ingrese la fecha y hora (yyyy/MM/dd HH:mm:ss)">
-                        </div>                            
-
+                        </div>
                         <div class="form-group">
+                            <label for="especialidades" class="form-label">Especialidades:</label>
+                            <select class="form-select form-control-user" id="especialidades" name="especialidad" onchange="actualizarMedicos()" style="width: 100%; padding: 0.9%;" >
+                                <option value="">Seleccione una especialidad</option>
+                                <c:forEach var="especialidad" items="${especialidades}">
+                                    <option value="${especialidad.idEspecialidad}">${especialidad.nombreEspecialidad}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="medicos" class="form-label">Médicos:</label>
+                            <select class="form-select form-control-user" id="medicos" name="idMedico" disabled onchange="actualizarHoras()" style="width: 100%; padding: 0.9%;" >
+                                <option value="">Seleccione una especialidad primero</option>
+                            </select>
+                        </div>
+
+                        <%--<div class="form-group">
                             <label for="agenda" class="form-label">MEDICO</label>
                             <select class="custom-select custom-select-sm form-control form-control-sm" id="idMedAgenda" name="idMedico" style="width: 100%; padding: 0.9%;" >                                                                     
                                 <% for (AnyTypeArray medico : medicos) %><%{%>
@@ -129,12 +147,12 @@
                                 <option value="<%=idMedico%>"><%=nombremedico + " " + apellidoPat + " " + apellidoMat%> </option>
                                 <%}%>    
                             </select>
-                        </div>
+                        </div>--%>
 
                         <div class="form-group">
                             <label class="form-label">TURNO</label>
                             <select class="custom-select custom-select-sm form-control form-control-sm" id="idMedAgenda" name="nameAgenda" style="width: 100%; padding: 0.9%;" >                                                                     
-                                <option value="Mañana">Mañana</option>
+                                <option value="Ma&ntilde;ana">Mañana</option>
                                 <option value="Tarde">Tarde</option>         
                             </select>
                         </div>

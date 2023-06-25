@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.2 (UNKNOWN-17d59c9; 2018-09-26T15:16:30-0700) JAXWS-RI/2.3.1 JAXWS-API/2.3.1 JAXB-RI/2.3.1 JAXB-API/2.3.1 svn-revision#unknown. --><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://jaxb.dev.java.net/array">
-
-<xs:complexType name="anyTypeArray" final="#all">
-<xs:sequence>
-<xs:element name="item" type="xs:anyType" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
-</xs:sequence>
-</xs:complexType>
-</xs:schema>

@@ -69,7 +69,7 @@
                             </div>
 
                         </form>
-
+                                
                     </div>
                 </div>
             </div>
@@ -78,6 +78,9 @@
         </div>
 
     </div>
+                                <c:if test="${error!=null}">
+                                    <p>${error}</p>
+                                </c:if>
     <!-- /.container-fluid -->
 
     <jsp:include page="footer.jsp" />  
