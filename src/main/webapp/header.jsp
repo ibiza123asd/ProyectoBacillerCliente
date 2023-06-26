@@ -30,7 +30,9 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3" style="color: #fff; font-weight: bold;">MINISTERIO DE SALUD</div>
+                <div class="sidebar-brand-text mx-3" style="color: #fff; font-weight: bold;">
+                    <a href="home.jsp" style="color: #fff; font-weight: bold;">MINISTERIO DE SALUD </a>
+                </div>
             </div>
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                 <i class="fa fa-bars"></i>
@@ -38,12 +40,6 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDarkDropdown">
                 <c:if test="${paciente==null}">
                     <ul class="navbar-nav">                            
-                        <a href="adm_login.jsp" class="btn btn-info btn-icon-split" style="width: max-content; margin: 2% 0%;">
-                            <span class="icon text-white-50">
-                                <i class="fas fa-adjust"></i>
-                            </span>
-                            <span class="text">ADMINISTRADOR</span>
-                        </a>
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <a href="ValidarSis.jsp" class="btn btn-warning btn-icon-split" style="width: max-content; margin: 2% 0%;">
                             <span class="icon text-white-50">

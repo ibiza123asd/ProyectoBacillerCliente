@@ -27,8 +27,11 @@ public class ObjectFactory {
     private final static QName _ListarAllAgendaResponse_QNAME = new QName("http://Servicios/", "listarAllAgendaResponse");
     private final static QName _EncontrarCitaResponse_QNAME = new QName("http://Servicios/", "encontrarCitaResponse");
     private final static QName _ListarAllAgenda_QNAME = new QName("http://Servicios/", "listarAllAgenda");
+    private final static QName _EncontrarCitaUltima_QNAME = new QName("http://Servicios/", "encontrarCitaUltima");
+    private final static QName _EncontrarCitaUltimaResponse_QNAME = new QName("http://Servicios/", "encontrarCitaUltimaResponse");
     private final static QName _ListarAgendaByMedico_QNAME = new QName("http://Servicios/", "listarAgendaByMedico");
     private final static QName _FindCitasResponse_QNAME = new QName("http://Servicios/", "findCitasResponse");
+    private final static QName _ListarCitasByIdPaciente_QNAME = new QName("http://Servicios/", "listarCitasByIdPaciente");
     private final static QName _EncontrarPacienteResponse_QNAME = new QName("http://Servicios/", "encontrarPacienteResponse");
     private final static QName _EncontrarCita_QNAME = new QName("http://Servicios/", "encontrarCita");
     private final static QName _RegistrarPacienteResponse_QNAME = new QName("http://Servicios/", "registrarPacienteResponse");
@@ -45,13 +48,16 @@ public class ObjectFactory {
     private final static QName _EncontrarPaciente_QNAME = new QName("http://Servicios/", "encontrarPaciente");
     private final static QName _FindCitas_QNAME = new QName("http://Servicios/", "findCitas");
     private final static QName _ListarMedicoByEspecialidad_QNAME = new QName("http://Servicios/", "listarMedicoByEspecialidad");
+    private final static QName _ListarAllCitas_QNAME = new QName("http://Servicios/", "listarAllCitas");
     private final static QName _Logeo_QNAME = new QName("http://Servicios/", "logeo");
     private final static QName _CreateEspecialityResponse_QNAME = new QName("http://Servicios/", "createEspecialityResponse");
     private final static QName _EncontrarMedico_QNAME = new QName("http://Servicios/", "encontrarMedico");
     private final static QName _LogeoResponse_QNAME = new QName("http://Servicios/", "logeoResponse");
     private final static QName _Hello_QNAME = new QName("http://Servicios/", "hello");
+    private final static QName _ListarAllCitasResponse_QNAME = new QName("http://Servicios/", "listarAllCitasResponse");
     private final static QName _CountMedicsBySpecialty_QNAME = new QName("http://Servicios/", "countMedicsBySpecialty");
     private final static QName _CountMedicsByShiftResponse_QNAME = new QName("http://Servicios/", "countMedicsByShiftResponse");
+    private final static QName _ListarCitasByIdPacienteResponse_QNAME = new QName("http://Servicios/", "listarCitasByIdPacienteResponse");
     private final static QName _PacientePorEspecialidadResponse_QNAME = new QName("http://Servicios/", "pacientePorEspecialidadResponse");
     private final static QName _HelloResponse_QNAME = new QName("http://Servicios/", "helloResponse");
     private final static QName _EncontrarUltimoRegistroResponse_QNAME = new QName("http://Servicios/", "encontrarUltimoRegistroResponse");
@@ -235,6 +241,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ListarCitasByIdPacienteResponse }
+     * 
+     */
+    public ListarCitasByIdPacienteResponse createListarCitasByIdPacienteResponse() {
+        return new ListarCitasByIdPacienteResponse();
+    }
+
+    /**
      * Create an instance of {@link PacientePorEspecialidadResponse }
      * 
      */
@@ -283,6 +297,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ListarAllCitasResponse }
+     * 
+     */
+    public ListarAllCitasResponse createListarAllCitasResponse() {
+        return new ListarAllCitasResponse();
+    }
+
+    /**
      * Create an instance of {@link CreateEspecialityResponse }
      * 
      */
@@ -304,6 +326,14 @@ public class ObjectFactory {
      */
     public LogeoResponse createLogeoResponse() {
         return new LogeoResponse();
+    }
+
+    /**
+     * Create an instance of {@link ListarAllCitas }
+     * 
+     */
+    public ListarAllCitas createListarAllCitas() {
+        return new ListarAllCitas();
     }
 
     /**
@@ -443,6 +473,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ListarCitasByIdPaciente }
+     * 
+     */
+    public ListarCitasByIdPaciente createListarCitasByIdPaciente() {
+        return new ListarCitasByIdPaciente();
+    }
+
+    /**
      * Create an instance of {@link ListarAgendaByMedico }
      * 
      */
@@ -456,6 +494,14 @@ public class ObjectFactory {
      */
     public EncontrarPacienteResponse createEncontrarPacienteResponse() {
         return new EncontrarPacienteResponse();
+    }
+
+    /**
+     * Create an instance of {@link EncontrarCitaUltima }
+     * 
+     */
+    public EncontrarCitaUltima createEncontrarCitaUltima() {
+        return new EncontrarCitaUltima();
     }
 
     /**
@@ -480,6 +526,14 @@ public class ObjectFactory {
      */
     public ListarAllAgenda createListarAllAgenda() {
         return new ListarAllAgenda();
+    }
+
+    /**
+     * Create an instance of {@link EncontrarCitaUltimaResponse }
+     * 
+     */
+    public EncontrarCitaUltimaResponse createEncontrarCitaUltimaResponse() {
+        return new EncontrarCitaUltimaResponse();
     }
 
     /**
@@ -582,6 +636,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarCitaUltima }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "encontrarCitaUltima")
+    public JAXBElement<EncontrarCitaUltima> createEncontrarCitaUltima(EncontrarCitaUltima value) {
+        return new JAXBElement<EncontrarCitaUltima>(_EncontrarCitaUltima_QNAME, EncontrarCitaUltima.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EncontrarCitaUltimaResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "encontrarCitaUltimaResponse")
+    public JAXBElement<EncontrarCitaUltimaResponse> createEncontrarCitaUltimaResponse(EncontrarCitaUltimaResponse value) {
+        return new JAXBElement<EncontrarCitaUltimaResponse>(_EncontrarCitaUltimaResponse_QNAME, EncontrarCitaUltimaResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListarAgendaByMedico }{@code >}}
      * 
      */
@@ -597,6 +669,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicios/", name = "findCitasResponse")
     public JAXBElement<FindCitasResponse> createFindCitasResponse(FindCitasResponse value) {
         return new JAXBElement<FindCitasResponse>(_FindCitasResponse_QNAME, FindCitasResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarCitasByIdPaciente }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "listarCitasByIdPaciente")
+    public JAXBElement<ListarCitasByIdPaciente> createListarCitasByIdPaciente(ListarCitasByIdPaciente value) {
+        return new JAXBElement<ListarCitasByIdPaciente>(_ListarCitasByIdPaciente_QNAME, ListarCitasByIdPaciente.class, null, value);
     }
 
     /**
@@ -744,6 +825,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarAllCitas }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "listarAllCitas")
+    public JAXBElement<ListarAllCitas> createListarAllCitas(ListarAllCitas value) {
+        return new JAXBElement<ListarAllCitas>(_ListarAllCitas_QNAME, ListarAllCitas.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Logeo }{@code >}}
      * 
      */
@@ -789,6 +879,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarAllCitasResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "listarAllCitasResponse")
+    public JAXBElement<ListarAllCitasResponse> createListarAllCitasResponse(ListarAllCitasResponse value) {
+        return new JAXBElement<ListarAllCitasResponse>(_ListarAllCitasResponse_QNAME, ListarAllCitasResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CountMedicsBySpecialty }{@code >}}
      * 
      */
@@ -804,6 +903,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicios/", name = "countMedicsByShiftResponse")
     public JAXBElement<CountMedicsByShiftResponse> createCountMedicsByShiftResponse(CountMedicsByShiftResponse value) {
         return new JAXBElement<CountMedicsByShiftResponse>(_CountMedicsByShiftResponse_QNAME, CountMedicsByShiftResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarCitasByIdPacienteResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "listarCitasByIdPacienteResponse")
+    public JAXBElement<ListarCitasByIdPacienteResponse> createListarCitasByIdPacienteResponse(ListarCitasByIdPacienteResponse value) {
+        return new JAXBElement<ListarCitasByIdPacienteResponse>(_ListarCitasByIdPacienteResponse_QNAME, ListarCitasByIdPacienteResponse.class, null, value);
     }
 
     /**

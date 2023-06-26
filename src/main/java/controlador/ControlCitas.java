@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import Services.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpSession;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Iterator;
 
 @WebServlet(name = "ControlCitas", urlPatterns = {"/ControlCitas"})
 public class ControlCitas extends HttpServlet {
@@ -27,9 +30,7 @@ public class ControlCitas extends HttpServlet {
     PrintWriter out;
     List<Especialidad> especialidades;
     List<AnyTypeArray> listaCitas;
-
     String password;
-
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
@@ -150,13 +151,6 @@ public class ControlCitas extends HttpServlet {
                 sc.createAgenda(agenda);
                 req.getRequestDispatcher("/adm_agenda.jsp").forward(req, resp);
                 break;
-
-            case "adm_login":
-                documento = req.getParameter("dni");
-                password = req.getParameter("contrasena");
-                this.adm_login(req, resp, documento, password);
-                break;
-
             case "adm_dashboard":
                 req.getRequestDispatcher("/adm_dashboard.jsp").forward(req, resp);
                 break;
@@ -219,11 +213,12 @@ public class ControlCitas extends HttpServlet {
             System.out.println("ultimaCita del parámetro medico: " + req.getParameter("medico"));
             int idmedico = Integer.parseInt(req.getParameter("medico"));
             List<AgendaDTO> agenda = sc.listarAgendaByMedico(idmedico);
+            List<AgendaDTO> fechasDisponibles = this.fechasDisponibles(agenda);
             resp.setContentType("text/html");
             out = resp.getWriter();
             out = resp.getWriter();
             out.print("<option value=''>Seleccione una agenda</option>");
-            agenda.forEach(ag -> {
+            fechasDisponibles.forEach(ag -> {
                 out.print("<option value='" + ag.getIdAgenda() + "'>" + ag.getFechaHora() + " Turno " + ag.getTurno() + "</option>");
             });
         }
@@ -243,28 +238,28 @@ public class ControlCitas extends HttpServlet {
 
     public void login(HttpServletRequest req, HttpServletResponse resp, String documento, String password) throws ServletException, IOException {
         Paciente paciente = sc.encontrarPacientebyLogeo(documento, password);
-        if (paciente != null) {
+        String dniAdmin = "75864266";
+        String passAdmin = "*******";
+        String name = "AdministradorLee";
+        if (documento.equalsIgnoreCase(dniAdmin) && passAdmin.equalsIgnoreCase(password)) {
             sesion = req.getSession();
-            listaCitas = sc.encontrarlistaCitas(documento);
+            sesion.setAttribute("name", name);
+            req.getRequestDispatcher("/adm_dashboard.jsp").forward(req, resp);
+        } else if (sc.encontrarPacientebyLogeo(documento, password) != null) {
+            sesion = req.getSession();
+            int idPaciente = paciente.getIdPaciente();
+            System.out.println("El ID del Paciente es:" +idPaciente);
+            List<CitaDTO> citasDTO = sc.encontrarListaCitasByIdPaciente(idPaciente);
             sesion.setAttribute("especialidades", sc.listarEspecialidades());
             sesion.setAttribute("paciente", paciente);
-            sesion.setAttribute("listaCitas", listaCitas);
+            sesion.setAttribute("listaCitas", citasDTO);
             req.getRequestDispatcher("/perfil.jsp").forward(req, resp);
+
         } else {
             req.setAttribute("Resultado", "Credenciales incorrectos o No se encuentra afiliado al SIS");
             req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
-    }
 
-    public void adm_login(HttpServletRequest req, HttpServletResponse resp, String documento, String password) throws ServletException, IOException {
-        Paciente paciente = sc.encontrarPacientebyLogeo(documento, password);
-        if (paciente != null) {
-            sesion = req.getSession();
-            req.getRequestDispatcher("/adm_dashboard.jsp").forward(req, resp);
-        } else {
-            req.setAttribute("Resultado", "Credenciales incorrectos o No se encuentra afiliado al SIS");
-            req.getRequestDispatcher("/adm_login.jsp").forward(req, resp);
-        }
     }
 
     public void registroPaciente(HttpServletRequest req, HttpServletResponse resp, String documentor, int bandera) throws ServletException, IOException {
@@ -315,7 +310,6 @@ public class ControlCitas extends HttpServlet {
             req.getRequestDispatcher("/ValidarSis.jsp").forward(req, resp);
         }
     }
-
     public void registrarCita(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int especialidad = Integer.parseInt(req.getParameter("especialidad"));
         int medico = Integer.parseInt(req.getParameter("medicos"));
@@ -340,26 +334,31 @@ public class ControlCitas extends HttpServlet {
         XMLGregorianCalendar xmlfechaHora = this.ConversionFechaHra(fechaHora);
         cita.setFechaHora(xmlfechaHora);
         String error = null;
-        try{
-            sc.registrarCita(cita);
-        }catch(Exception exp){
-            exp.printStackTrace();
-            error = "La fecha ya se encuentra ocupada o ha excedido el limite de citas por dia, intenta con otra fecha o con otro medico";
-        }
-        
-        if(error!=null){
-            req.setAttribute("error", error);
-            req.getRequestDispatcher("/FormularioCita.jsp").forward(req, resp);
-        }
-        int ultimaCita = sc.encontrarUltimaCita();
-        Especialidad especialidadp = sc.encontrarEspecialidad(especialidad);
+        sc.registrarCita(cita);
+//        try {
+//            sc.registrarCita(cita);
+//        } catch (Exception exp) {
+//            exp.printStackTrace();
+//            error = "La fecha ya se encuentra ocupada o ha excedido el limite de citas por dia, intenta con otra fecha o con otro medico";
+//        }
 
+//        if (error != null) {
+//            req.setAttribute("error", error);
+//            req.getRequestDispatcher("/FormularioCita.jsp").forward(req, resp);
+//        }
+        int ultimaCita = sc.encontrarUltimaCita();
+        System.out.println("La ultima cita registrada es:" +ultimaCita);
+        Especialidad especialidadp = sc.encontrarEspecialidad(especialidad);        
+        CitaDTO citaDTO = sc.encontrarCitaUltimada();
+        Integer valor = citaDTO.getOrden();
+        System.out.println("El orden de la Cita es:" +valor);
         req.setAttribute("ultimacita", ultimaCita);
         req.setAttribute("Medico", medicodto.getNombreMedico());
         req.setAttribute("Especialidad", especialidadp.getNombreEspecialidad());
         req.setAttribute("FechaCita", agendaDTO.getFechaHora());
         req.setAttribute("Turno", agendaDTO.getTurno());
         req.setAttribute("edad", paciente.getEdad());
+        req.setAttribute("Orden", citaDTO.getOrden());
         req.setAttribute("nombre", paciente.getNombre() + "\t" + paciente.getApellidoPaterno());
         req.setAttribute("documentodni", paciente.getDni());
         req.setAttribute("monto", MONTO);
@@ -385,7 +384,6 @@ public class ControlCitas extends HttpServlet {
 
         return xmlfechaHora;
     }
-
     public String validarApiSIS(String documento) {
         String resultado = null;
         List<String> documentos = new ArrayList<>();
@@ -460,6 +458,44 @@ public class ControlCitas extends HttpServlet {
         }
 
         return resultado;
+    }
+
+    public List<AgendaDTO> fechasDisponibles(List<AgendaDTO> agendasByMedico) {
+        System.out.println("La cantidad de agendasIniciales son:" + agendasByMedico.size());
+        List<AgendaDTO> agenda2 = new ArrayList<AgendaDTO>();
+        List<XMLGregorianCalendar> fechaCitas = sc.listarAllCitas();
+        List<String> fechaCitaString = new ArrayList<>();
+        List<String> fechaAgendasString = new ArrayList<>();
+
+        //ListaDeCitas Ocupadas
+        for (XMLGregorianCalendar item : fechaCitas) {
+            String dateTimeString = this.conversionFechasLista(item);
+            fechaCitaString.add(dateTimeString);
+            System.out.println(fechaCitaString);
+        }
+        //Lista de Citas disponibles
+        for (String fechaCita : fechaCitaString) {
+            Iterator<AgendaDTO> iterator = agendasByMedico.iterator();
+            while (iterator.hasNext()) {
+                AgendaDTO agenda = iterator.next();
+                if (fechaCita.equals(agenda.getFechaHora())) {
+                    iterator.remove();
+                }
+            }
+        }
+
+        agenda2.addAll(agendasByMedico);
+        System.out.println("Despues de eliminar son:" + agenda2.size());
+        return agenda2;
+    }
+
+    public String conversionFechasLista(XMLGregorianCalendar xmLCalendar) {
+        LocalDateTime localDateTime = LocalDateTime.of(xmLCalendar.getYear(), xmLCalendar.getMonth(),
+                xmLCalendar.getDay(), xmLCalendar.getHour(), xmLCalendar.getMinute(), xmLCalendar.getSecond());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String dateTimeString = localDateTime.format(formatter);
+        return dateTimeString;
+
     }
 
 }

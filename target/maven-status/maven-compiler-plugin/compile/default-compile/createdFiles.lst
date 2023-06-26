@@ -3,13 +3,16 @@ Services\CreateEspecialityResponse.class
 Services\CreateMedicResponse.class
 Services\EncontrarAgenda.class
 Services\Cita.class
+Services\ListarAllCitasResponse.class
 Services\CountMedicsBySpecialtyResponse.class
 Services\LogeoResponse.class
+Services\ListarCitasByIdPaciente.class
 Services\Logeo.class
 Services\CountPatientsByMedic.class
 Services\Agenda.class
 Services\PacientePorEspecialidadResponse.class
 Services\CreateMAgendaResponse.class
+Services\EncontrarCitaUltima.class
 Services\package-info.class
 Services\CitaDTO.class
 controlador\JAXRSConfiguration.class
@@ -33,6 +36,7 @@ Services\ListarMedicoByEspecialidad.class
 Services\EncontrarUltimoRegistroResponse.class
 Services\CountMedicsByShift.class
 Services\UpdatePacienteResponse.class
+Services\ListarCitasByIdPacienteResponse.class
 Services\EncontrarUltimoRegistro.class
 Services\CreateMAgenda.class
 Services\ListarMedicos.class
@@ -47,6 +51,7 @@ Services\EncontrarCita.class
 Services\FindCitasResponse.class
 Services\RegistrarPacienteResponse.class
 Services\CountMedicsByShiftResponse.class
+Services\ListarAllCitas.class
 Services\CountPatientsByMedicResponse.class
 controlador\resources\JavaEE8Resource.class
 Services\AgendaDTO.class
@@ -54,6 +59,7 @@ Services\Paciente.class
 Services\AnyTypeArray.class
 Services\UpdatePaciente.class
 Services\CountAppointmentsByPatient.class
+Services\EncontrarCitaUltimaResponse.class
 Services\ListarMedicoByEspecialidadResponse.class
 Services\ListarAgendaByMedico.class
 Services\Services_Service.class

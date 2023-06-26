@@ -128,7 +128,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="ControlCitas?accion=adm_dashboard" id="userDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                                
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${paciente.nombre}  ${paciente.apellidoPaterno} ${paciente.apellidoMaterno} </span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">${name} </span>
                                     <img class="img-profile rounded-circle"
                                          src="Bmodelo/img/undraw_profile.svg">
                                 </a>

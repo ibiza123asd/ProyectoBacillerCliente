@@ -5,7 +5,9 @@
 package Services;
 
 import Services.*;
+import java.util.Date;
 import java.util.List;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 public class ServiciosCliente {
     
@@ -18,6 +20,12 @@ public class ServiciosCliente {
         return port.listarEspecialidades();
     }
     
+    public List<XMLGregorianCalendar> listarAllCitas() {
+        Services_Service Service = new Services_Service();
+        Services port = Service.getServicesPort();
+        return port.listarAllCitas();
+    }
+   
     public List<MedicoDTO> listarMedicos(int codEspecialidad) {
         Services_Service Service = new Services_Service();
         Services port = Service.getServicesPort();
@@ -45,6 +53,11 @@ public class ServiciosCliente {
         Services_Service Service = new Services_Service();
         Services port = Service.getServicesPort();
         return port.encontrarCita(codigo);
+    }
+    public CitaDTO encontrarCitaUltimada() {
+        Services_Service Service = new Services_Service();
+        Services port = Service.getServicesPort();
+        return port.encontrarCitaUltima();
     }
     
     public int encontrarUltimaCita() {
@@ -153,5 +166,11 @@ public class ServiciosCliente {
         Services_Service Service = new Services_Service();
         Services port = Service.getServicesPort();
         return port.listarAllAgenda();
+    }
+    
+    public List<CitaDTO> encontrarListaCitasByIdPaciente(int idPaciente) {
+        Services_Service Service = new Services_Service();
+        Services port = Service.getServicesPort();
+        return port.listarCitasByIdPaciente(idPaciente);
     }
 }

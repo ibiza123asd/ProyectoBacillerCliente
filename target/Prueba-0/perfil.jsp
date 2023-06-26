@@ -1,3 +1,4 @@
+<%@page import="Services.CitaDTO"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="javax.xml.datatype.XMLGregorianCalendar"%>
@@ -15,7 +16,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <%
-    List<AnyTypeArray> listaCitas = (List) session.getAttribute("listaCitas");
+    List<CitaDTO> listaCitas = (List) session.getAttribute("listaCitas");
 %>
 
 <head>
@@ -105,16 +106,17 @@
                     <div class="card-body">
 
                         <div class="row">
-                            <% for (AnyTypeArray cita : listaCitas) {
-                                    Object[] citaArray = cita.getItem().toArray();
-                                    Integer idCita = (Integer) citaArray[0];
-                                    String medico = (String) citaArray[2];
-                                    String especialidad = (String) citaArray[3];
-                                    XMLGregorianCalendar xmLCalendar = (XMLGregorianCalendar) citaArray[4];
+                            <% for (CitaDTO cita : listaCitas) {
+                                   // Object[] citaArray = cita.getItem().toArray();
+                                    Integer idCita = cita.getIdCita();
+                                    String medico = (String) cita.getNombreMedico();
+                                    //String especialidad = (String) cita.ge;
+                                    /*XMLGregorianCalendar xmLCalendar = (XMLGregorianCalendar) cita.;
                                     LocalDateTime localDateTime = LocalDateTime.of(xmLCalendar.getYear(), xmLCalendar.getMonth(),
                                             xmLCalendar.getDay(), xmLCalendar.getHour(), xmLCalendar.getMinute(), xmLCalendar.getSecond());
-                                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-                                    String dateTimeString = localDateTime.format(formatter);
+                                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");*/
+                                    String dateTimeString = cita.getFechaHora();
+                                    Integer orden = cita.getOrden();
 
                             %>
 
@@ -123,10 +125,10 @@
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-s font-weight-bold text-primary text-uppercase mb-1"># Cita: <%= idCita%></div>
-                                                <div><%= medico%></div>
-                                                <div><%= especialidad%></div>
-                                                <div><%= dateTimeString%></div>
+                                                <div class="text-s font-weight-bold text-primary text-uppercase mb-1">Id Cita: <%= idCita%></div>
+                                                <div>Médico <%= medico%></div>
+                                                <div>Numero de Orden <%= orden%></div>
+                                                <div>Fecha <%= dateTimeString%></div>
                                             </div>
                                             <div class="col-auto">
                                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>

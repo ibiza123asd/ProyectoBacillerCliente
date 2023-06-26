@@ -16,6 +16,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="costo" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
+ *         &lt;element name="fechaHora" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="idCita" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="idMedico" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="idPaciente" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
@@ -32,6 +34,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "citaDTO", propOrder = {
+    "costo",
+    "fechaHora",
     "idCita",
     "idMedico",
     "idPaciente",
@@ -41,12 +45,62 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class CitaDTO {
 
+    protected Double costo;
+    protected String fechaHora;
     protected Integer idCita;
     protected Integer idMedico;
     protected Integer idPaciente;
     protected String nombreMedico;
     protected String nombrePaciente;
     protected Integer orden;
+
+    /**
+     * Obtiene el valor de la propiedad costo.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Double }
+     *     
+     */
+    public Double getCosto() {
+        return costo;
+    }
+
+    /**
+     * Define el valor de la propiedad costo.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Double }
+     *     
+     */
+    public void setCosto(Double value) {
+        this.costo = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad fechaHora.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getFechaHora() {
+        return fechaHora;
+    }
+
+    /**
+     * Define el valor de la propiedad fechaHora.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setFechaHora(String value) {
+        this.fechaHora = value;
+    }
 
     /**
      * Obtiene el valor de la propiedad idCita.

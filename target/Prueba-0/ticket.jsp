@@ -3,10 +3,16 @@
     Created on : 06/05/2023, 09:06:52 PM
     Author     : Brandon
 --%>
-
+<%@page import="Services.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
+<%
+        
+    CitaDTO citaDTO = new ServiciosCliente().encontrarCitaUltimada();
+    
+
+    %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,7 +32,8 @@
                     <div class="ticket">
                         <div class="info">
                             <h4>Ticket de Atención</h4>
-                            <p>No. de Cita: ${ultimacita}</p>
+                            <p>ID de Cita: ${ultimacita}</p>
+                            <p>Número de Atencion: <%=citaDTO.getOrden()%></p>
                         </div>
                         <hr>
                         <div class="detalles">
