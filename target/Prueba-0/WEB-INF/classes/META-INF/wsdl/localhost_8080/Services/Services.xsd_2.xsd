@@ -128,11 +128,14 @@
 
 <xs:complexType name="citaDTO">
 <xs:sequence>
+<xs:element name="apeMatMedico" type="xs:string" minOccurs="0"/>
+<xs:element name="apePatMedico" type="xs:string" minOccurs="0"/>
 <xs:element name="costo" type="xs:double" minOccurs="0"/>
 <xs:element name="fechaHora" type="xs:string" minOccurs="0"/>
 <xs:element name="idCita" type="xs:int" minOccurs="0"/>
 <xs:element name="idMedico" type="xs:int" minOccurs="0"/>
 <xs:element name="idPaciente" type="xs:int" minOccurs="0"/>
+<xs:element name="nombreEspecialidad" type="xs:string" minOccurs="0"/>
 <xs:element name="nombreMedico" type="xs:string" minOccurs="0"/>
 <xs:element name="nombrePaciente" type="xs:string" minOccurs="0"/>
 <xs:element name="orden" type="xs:int" minOccurs="0"/>
@@ -441,6 +444,16 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="countPatientsByMedic">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="countPatientsByMedicResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:anyTypeArray" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="encontrarPaciente">
 <xs:sequence>
 <xs:element name="documento" type="xs:string" minOccurs="0"/>
@@ -450,16 +463,6 @@
 <xs:complexType name="encontrarPacienteResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:paciente" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="countPatientsByMedic">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="countPatientsByMedicResponse">
-<xs:sequence>
-<xs:element name="return" type="ns1:anyTypeArray" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 

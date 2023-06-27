@@ -53,6 +53,9 @@ public class ControlCitas extends HttpServlet {
                 resp.sendRedirect("ControlCitas?accion=perfil");
                 break;
             case "perfil":
+                String dni = req.getParameter("documento");
+                Paciente paciente = sc.encontrarPaciente(dni);
+                req.getSession().setAttribute("listaCitas", sc.encontrarListaCitasByIdPaciente(paciente.getIdPaciente()));
                 req.getRequestDispatcher("/perfil.jsp").forward(req, resp);
                 break;
             case "cerrarSesion":

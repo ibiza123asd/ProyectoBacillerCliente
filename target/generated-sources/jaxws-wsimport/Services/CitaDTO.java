@@ -16,11 +16,14 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="apeMatMedico" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="apePatMedico" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="costo" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
  *         &lt;element name="fechaHora" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="idCita" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="idMedico" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="idPaciente" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="nombreEspecialidad" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="nombreMedico" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="nombrePaciente" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="orden" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
@@ -34,25 +37,79 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "citaDTO", propOrder = {
+    "apeMatMedico",
+    "apePatMedico",
     "costo",
     "fechaHora",
     "idCita",
     "idMedico",
     "idPaciente",
+    "nombreEspecialidad",
     "nombreMedico",
     "nombrePaciente",
     "orden"
 })
 public class CitaDTO {
 
+    protected String apeMatMedico;
+    protected String apePatMedico;
     protected Double costo;
     protected String fechaHora;
     protected Integer idCita;
     protected Integer idMedico;
     protected Integer idPaciente;
+    protected String nombreEspecialidad;
     protected String nombreMedico;
     protected String nombrePaciente;
     protected Integer orden;
+
+    /**
+     * Obtiene el valor de la propiedad apeMatMedico.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getApeMatMedico() {
+        return apeMatMedico;
+    }
+
+    /**
+     * Define el valor de la propiedad apeMatMedico.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setApeMatMedico(String value) {
+        this.apeMatMedico = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad apePatMedico.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getApePatMedico() {
+        return apePatMedico;
+    }
+
+    /**
+     * Define el valor de la propiedad apePatMedico.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setApePatMedico(String value) {
+        this.apePatMedico = value;
+    }
 
     /**
      * Obtiene el valor de la propiedad costo.
@@ -172,6 +229,30 @@ public class CitaDTO {
      */
     public void setIdPaciente(Integer value) {
         this.idPaciente = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad nombreEspecialidad.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getNombreEspecialidad() {
+        return nombreEspecialidad;
+    }
+
+    /**
+     * Define el valor de la propiedad nombreEspecialidad.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setNombreEspecialidad(String value) {
+        this.nombreEspecialidad = value;
     }
 
     /**

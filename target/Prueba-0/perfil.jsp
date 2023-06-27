@@ -110,13 +110,16 @@
                                    // Object[] citaArray = cita.getItem().toArray();
                                     Integer idCita = cita.getIdCita();
                                     String medico = (String) cita.getNombreMedico();
-                                    //String especialidad = (String) cita.ge;
+                                    String especialidad = (String) cita.getNombreEspecialidad();
                                     /*XMLGregorianCalendar xmLCalendar = (XMLGregorianCalendar) cita.;
                                     LocalDateTime localDateTime = LocalDateTime.of(xmLCalendar.getYear(), xmLCalendar.getMonth(),
                                             xmLCalendar.getDay(), xmLCalendar.getHour(), xmLCalendar.getMinute(), xmLCalendar.getSecond());
                                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");*/
                                     String dateTimeString = cita.getFechaHora();
                                     Integer orden = cita.getOrden();
+                                    String apeMaternoMedic= cita.getApeMatMedico();
+                                    String apePaterNoMedico = cita.getApePatMedico();
+                                    
 
                             %>
 
@@ -126,7 +129,8 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-s font-weight-bold text-primary text-uppercase mb-1">Id Cita: <%= idCita%></div>
-                                                <div>Médico <%= medico%></div>
+                                                <div>Médico <%= medico +' ' +apePaterNoMedico+' '+apeMaternoMedic%></div>
+                                                <div>Especialidad <%= especialidad%></div>
                                                 <div>Numero de Orden <%= orden%></div>
                                                 <div>Fecha <%= dateTimeString%></div>
                                             </div>

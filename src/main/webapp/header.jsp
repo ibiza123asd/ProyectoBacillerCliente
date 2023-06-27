@@ -83,7 +83,7 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Generar Cita
                                 </a>
-                                <a class="dropdown-item" href="ControlCitas?accion=perfil">
+                                <a class="dropdown-item" href="ControlCitas?accion=perfil&documento=${paciente.dni}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Perfil
                                 </a>                                
