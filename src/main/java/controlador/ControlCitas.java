@@ -31,6 +31,7 @@ public class ControlCitas extends HttpServlet {
     List<Especialidad> especialidades;
     List<AnyTypeArray> listaCitas;
     String password;
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
@@ -251,7 +252,7 @@ public class ControlCitas extends HttpServlet {
         } else if (sc.encontrarPacientebyLogeo(documento, password) != null) {
             sesion = req.getSession();
             int idPaciente = paciente.getIdPaciente();
-            System.out.println("El ID del Paciente es:" +idPaciente);
+            System.out.println("El ID del Paciente es:" + idPaciente);
             List<CitaDTO> citasDTO = sc.encontrarListaCitasByIdPaciente(idPaciente);
             sesion.setAttribute("especialidades", sc.listarEspecialidades());
             sesion.setAttribute("paciente", paciente);
@@ -313,6 +314,7 @@ public class ControlCitas extends HttpServlet {
             req.getRequestDispatcher("/ValidarSis.jsp").forward(req, resp);
         }
     }
+
     public void registrarCita(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int especialidad = Integer.parseInt(req.getParameter("especialidad"));
         int medico = Integer.parseInt(req.getParameter("medicos"));
@@ -350,11 +352,11 @@ public class ControlCitas extends HttpServlet {
 //            req.getRequestDispatcher("/FormularioCita.jsp").forward(req, resp);
 //        }
         int ultimaCita = sc.encontrarUltimaCita();
-        System.out.println("La ultima cita registrada es:" +ultimaCita);
-        Especialidad especialidadp = sc.encontrarEspecialidad(especialidad);        
+        System.out.println("La ultima cita registrada es:" + ultimaCita);
+        Especialidad especialidadp = sc.encontrarEspecialidad(especialidad);
         CitaDTO citaDTO = sc.encontrarCitaUltimada();
         Integer valor = citaDTO.getOrden();
-        System.out.println("El orden de la Cita es:" +valor);
+        System.out.println("El orden de la Cita es:" + valor);
         req.setAttribute("ultimacita", ultimaCita);
         req.setAttribute("Medico", medicodto.getNombreMedico());
         req.setAttribute("Especialidad", especialidadp.getNombreEspecialidad());
@@ -387,6 +389,7 @@ public class ControlCitas extends HttpServlet {
 
         return xmlfechaHora;
     }
+
     public String validarApiSIS(String documento) {
         String resultado = null;
         List<String> documentos = new ArrayList<>();
@@ -476,18 +479,14 @@ public class ControlCitas extends HttpServlet {
             fechaCitaString.add(dateTimeString);
             System.out.println(fechaCitaString);
         }
+        System.out.println("La lista de citas ocupadas son:" + fechaCitas.size());
         //Lista de Citas disponibles
-        for (String fechaCita : fechaCitaString) {
-            Iterator<AgendaDTO> iterator = agendasByMedico.iterator();
-            while (iterator.hasNext()) {
-                AgendaDTO agenda = iterator.next();
-                if (fechaCita.equals(agenda.getFechaHora())) {
-                    iterator.remove();
-                }
+
+        for (AgendaDTO agenda : agendasByMedico) {
+            if (!fechaCitaString.contains(agenda.getFechaHora())) {
+                agenda2.add(agenda);
             }
         }
-
-        agenda2.addAll(agendasByMedico);
         System.out.println("Despues de eliminar son:" + agenda2.size());
         return agenda2;
     }
