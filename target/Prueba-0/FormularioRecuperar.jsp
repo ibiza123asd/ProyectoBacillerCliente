@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <jsp:include page="main.jsp" />
+    <jsp:include page="header.jsp" />
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -46,10 +46,7 @@
                                             <button type="submit" class="btn btn-primary" name="boton"value="btn3">Actualizar Contraseña</button>
                                         </div>                                                                              
                                     </form>
-                                    <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="RecuperarPass.jsp">Olvide Mi Contraseña?</a>
-                                    </div>                                   
+                                    <hr>                                
                                 </div>
                             </div>
                         </div>
