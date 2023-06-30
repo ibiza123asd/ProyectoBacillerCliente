@@ -4,12 +4,15 @@
  */
 package controlador;
 
+import Services.AgendaDTO;
 import Services.AnyTypeArray;
+import Services.CitaDTO;
 import Services.ServiciosCliente;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -34,39 +37,19 @@ public class psvm {
 //            Logger.getLogger(psvm.class.getName()).log(Level.SEVERE, null, ex);
 //        }
         ServiciosCliente sc = new ServiciosCliente();
-        List<XMLGregorianCalendar> fechaCitas = sc.listarAllCitas();
-        List<AnyTypeArray> fechaAgendas = sc.listarAllAgendas();
-        List<String> fechaCitaString = new ArrayList<>();
-        List<String> fechaAgendasString = new ArrayList<>();
-        for (AnyTypeArray item : fechaAgendas) {
-            Object[] citaArray = item.getItem().toArray();
-            XMLGregorianCalendar xmLCalendar = (XMLGregorianCalendar) citaArray[0];
-            LocalDateTime localDateTime = LocalDateTime.of(xmLCalendar.getYear(), xmLCalendar.getMonth(),
-                    xmLCalendar.getDay(), xmLCalendar.getHour(), xmLCalendar.getMinute(), xmLCalendar.getSecond());
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-            String dateTimeString = localDateTime.format(formatter);
-            System.out.println(dateTimeString);
-            fechaAgendasString.add(dateTimeString);
-
+        List<AgendaDTO> agendas = sc.listarAgendaByMedico(12);
+        List<CitaDTO> citas= sc.encontrarListaCitasByidMedico(12);
+        
+        for(AgendaDTO agenda:agendas){
+            System.out.println("Hola1:"+agenda.getFechaHora());
         }
-        System.out.println("Hola Mundo");
+        
+        for(CitaDTO cita: citas){
 
-        for (XMLGregorianCalendar item : fechaCitas) {
-            LocalDateTime localDateTime = LocalDateTime.of(item.getYear(), item.getMonth(),
-                    item.getDay(), item.getHour(), item.getMinute(), item.getSecond());
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-            String dateTimeString = localDateTime.format(formatter);
-            System.out.println(dateTimeString);
-            fechaCitaString.add(dateTimeString);
-
+            System.out.println("Hola2:"+cita.getFechaHora());
         }
-        List<String> fechaAgendasString2 = new ArrayList<>();
-        for (String fechaCita : fechaCitaString) {
-            fechaAgendasString.remove(fechaCita);
-        }
-
-        fechaAgendasString2.addAll(fechaAgendasString);
-        System.out.println(fechaAgendasString2.size());
 
     }
+    
+  
 }

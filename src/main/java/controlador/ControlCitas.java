@@ -217,7 +217,7 @@ public class ControlCitas extends HttpServlet {
             System.out.println("ultimaCita del parámetro medico: " + req.getParameter("medico"));
             int idmedico = Integer.parseInt(req.getParameter("medico"));
             List<AgendaDTO> agenda = sc.listarAgendaByMedico(idmedico);
-            List<AgendaDTO> fechasDisponibles = this.fechasDisponibles(agenda);
+            List<AgendaDTO> fechasDisponibles = this.fechasDisponibles(agenda, idmedico);
             resp.setContentType("text/html");
             out = resp.getWriter();
             out = resp.getWriter();
@@ -466,38 +466,36 @@ public class ControlCitas extends HttpServlet {
         return resultado;
     }
 
-    public List<AgendaDTO> fechasDisponibles(List<AgendaDTO> agendasByMedico) {
+    public List<AgendaDTO> fechasDisponibles(List<AgendaDTO> agendasByMedico, int idMedico) {
         System.out.println("La cantidad de agendasIniciales son:" + agendasByMedico.size());
         List<AgendaDTO> agenda2 = new ArrayList<AgendaDTO>();
-        List<XMLGregorianCalendar> fechaCitas = sc.listarAllCitas();
+        List<CitaDTO> fechaCitas = sc.encontrarListaCitasByidMedico(idMedico);
         List<String> fechaCitaString = new ArrayList<>();
-        List<String> fechaAgendasString = new ArrayList<>();
+
 
         //ListaDeCitas Ocupadas
-        for (XMLGregorianCalendar item : fechaCitas) {
-            String dateTimeString = this.conversionFechasLista(item);
-            fechaCitaString.add(dateTimeString);
-            System.out.println(fechaCitaString);
+        for (CitaDTO item : fechaCitas) {
+            System.out.println(item.getFechaHora());
+            fechaCitaString.add(item.getFechaHora());
+
         }
         System.out.println("La lista de citas ocupadas son:" + fechaCitas.size());
         //Lista de Citas disponibles
-
-        for (AgendaDTO agenda : agendasByMedico) {
-            if (!fechaCitaString.contains(agenda.getFechaHora())) {
-                agenda2.add(agenda);
+        //Lista de Citas disponibles
+        for (String fechaCita : fechaCitaString) {
+            Iterator<AgendaDTO> iterator = agendasByMedico.iterator();
+            while (iterator.hasNext()) {
+                AgendaDTO agenda = iterator.next();
+                if (fechaCita.equals(agenda.getFechaHora())) {
+                    iterator.remove();
+                }
             }
         }
+
+        agenda2.addAll(agendasByMedico);
         System.out.println("Despues de eliminar son:" + agenda2.size());
         return agenda2;
     }
 
-    public String conversionFechasLista(XMLGregorianCalendar xmLCalendar) {
-        LocalDateTime localDateTime = LocalDateTime.of(xmLCalendar.getYear(), xmLCalendar.getMonth(),
-                xmLCalendar.getDay(), xmLCalendar.getHour(), xmLCalendar.getMinute(), xmLCalendar.getSecond());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        String dateTimeString = localDateTime.format(formatter);
-        return dateTimeString;
-
-    }
 
 }

@@ -173,4 +173,10 @@ public class ServiciosCliente {
         Services port = Service.getServicesPort();
         return port.listarCitasByIdPaciente(idPaciente);
     }
+    
+    public List<CitaDTO> encontrarListaCitasByidMedico(int idMedico) {
+        Services_Service Service = new Services_Service();
+        Services port = Service.getServicesPort();
+        return port.listarCitasByIdMedico(idMedico);
+    }
 }

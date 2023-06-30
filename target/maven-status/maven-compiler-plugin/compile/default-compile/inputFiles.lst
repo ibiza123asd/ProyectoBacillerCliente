@@ -11,6 +11,7 @@ C:\Users\Brandon\Documents\NetBeansProjects\Prueba\src\main\java\controlador\psv
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\EncontrarUltimoRegistro.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\ListarAllAgenda.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\ListarMedicoByEspecialidadResponse.java
+C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\ListarCitasByIdMedico.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\CountMedicsBySpecialtyResponse.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\EncontrarCitaResponse.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\ListarEspecialidades.java
@@ -34,6 +35,7 @@ C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxw
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\EncontrarCita.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\EncontrarAgenda.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\AnyTypeArray.java
+C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\ListarCitasByIdMedicoResponse.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\src\main\java\controlador\ControlCitas.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\src\main\java\controlador\JAXRSConfiguration.java
 C:\Users\Brandon\Documents\NetBeansProjects\Prueba\target\generated-sources\jaxws-wsimport\Services\PacientePorEspecialidadResponse.java
