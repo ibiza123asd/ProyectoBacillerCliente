@@ -244,7 +244,7 @@ public class ControlCitas extends HttpServlet {
         Paciente paciente = sc.encontrarPacientebyLogeo(documento, password);
         String dniAdmin = "75864266";
         String passAdmin = "*******";
-        String name = "AdministradorLee";
+        String name = "Administrador";
         if (documento.equalsIgnoreCase(dniAdmin) && passAdmin.equalsIgnoreCase(password)) {
             sesion = req.getSession();
             sesion.setAttribute("name", name);
