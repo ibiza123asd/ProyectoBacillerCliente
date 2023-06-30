@@ -35,46 +35,62 @@
     </head>
 
     <main>
-        <div class="container my-5">
-            <div class="row">
-                <div class="col-md-11 mx-auto">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                
+        <section class="py-5" style="padding: 0% !important;">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6">
+                        <div class="text-center">
+                            <h2 class="fw-bolder">Autorizaciones Sanitarias</h2>
+                            <p class="lead fw-normal text-muted mb-5">Procedimientos Administrativos  TUPA</p>
                         </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="imagenes/imagen1.jpg" class="d-block img-fluid" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="imagenes/imagen2.jpg" class="d-block img-fluid" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="imagenes/imagen3.jpg" class="d-block img-fluid" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="imagenes/imagen4.jpg" class="d-block img-fluid" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="imagenes/imagen5.jpg" class="d-block img-fluid" alt="...">
-                            </div>
+                    </div>
+                </div>
+                <div class="row gx-5">
+                    <div class="col-lg-4 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="http://www.dirislimaeste.gob.pe/images/seccion-autorizaciones/mon-1.jpg" alt="...">
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="http://www.dirislimaeste.gob.pe/OtrosEst_do.asp?idOtroLink=0" target="_blank" ><h5 class="card-title mb-3">Dirección de Monitoreo y Gestión Sanitaria (DMGS)</h5></a>
+                                <p class="card-text mb-0">
+                                    Establecimientos de Salud <br/>
+                                    Servicios Médicos de Apoyo <br/>
+                                    Comunidades Terapéuticas
+                                </p>
+                            </div>                            
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Anterior</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Siguiente</span>
-                        </button>
+                    </div>
+                    <div class="col-lg-4 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="http://www.dirislimaeste.gob.pe/images/seccion-autorizaciones/dem-1.jpg" alt="...">
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="http://www.dirislimaeste.gob.pe/tupa-Demid.asp" target="_blank" ><h5 class="card-title mb-3">Dirección de Medicamentos, Insumos y Drogas (DEMID)</h5></a>
+                                <p class="card-text mb-0">Establecimientos Farmaceuticos</p>
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="http://www.dirislimaeste.gob.pe/images/seccion-autorizaciones/des-1.jpg" alt="...">
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="http://www.dirislimaeste.gob.pe/tupa-Desaia.asp" target="_blank" ><h5 class="card-title mb-3">Dirección de Salud Ambiental e Inocuidad Alimentaria (DESAIA)</h5></a>
+                                <p class="card-text mb-0">
+                                    Abastecimiento de Agua <br/>
+                                    Empresas Saneamiento Ambiental <br/>
+                                    Piscinas <br/>
+                                    Clínicas Veterinarias <br/>
+                                    Cementerios, Cremaciones
+                                </p>
+                            </div>                            
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
     </main>  
 
 

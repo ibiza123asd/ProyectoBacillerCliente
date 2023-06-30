@@ -57,6 +57,7 @@ public class ObjectFactory {
     private final static QName _ListarAllCitasResponse_QNAME = new QName("http://Servicios/", "listarAllCitasResponse");
     private final static QName _CountMedicsBySpecialty_QNAME = new QName("http://Servicios/", "countMedicsBySpecialty");
     private final static QName _CountMedicsByShiftResponse_QNAME = new QName("http://Servicios/", "countMedicsByShiftResponse");
+    private final static QName _ListarCitasByIdMedico_QNAME = new QName("http://Servicios/", "listarCitasByIdMedico");
     private final static QName _ListarCitasByIdPacienteResponse_QNAME = new QName("http://Servicios/", "listarCitasByIdPacienteResponse");
     private final static QName _PacientePorEspecialidadResponse_QNAME = new QName("http://Servicios/", "pacientePorEspecialidadResponse");
     private final static QName _HelloResponse_QNAME = new QName("http://Servicios/", "helloResponse");
@@ -66,6 +67,7 @@ public class ObjectFactory {
     private final static QName _RegistrarCita_QNAME = new QName("http://Servicios/", "registrarCita");
     private final static QName _EncontrarAgendaResponse_QNAME = new QName("http://Servicios/", "encontrarAgendaResponse");
     private final static QName _ListarAgendaByMedicoResponse_QNAME = new QName("http://Servicios/", "listarAgendaByMedicoResponse");
+    private final static QName _ListarCitasByIdMedicoResponse_QNAME = new QName("http://Servicios/", "listarCitasByIdMedicoResponse");
     private final static QName _CountMedicsByShift_QNAME = new QName("http://Servicios/", "countMedicsByShift");
     private final static QName _CountMedicsBySpecialtyResponse_QNAME = new QName("http://Servicios/", "countMedicsBySpecialtyResponse");
     private final static QName _CreateMedicResponse_QNAME = new QName("http://Servicios/", "createMedicResponse");
@@ -86,6 +88,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link AnyTypeArray }
+     * 
+     */
+    public AnyTypeArray createAnyTypeArray() {
+        return new AnyTypeArray();
     }
 
     /**
@@ -217,6 +227,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ListarCitasByIdMedicoResponse }
+     * 
+     */
+    public ListarCitasByIdMedicoResponse createListarCitasByIdMedicoResponse() {
+        return new ListarCitasByIdMedicoResponse();
+    }
+
+    /**
      * Create an instance of {@link RegistrarCitaResponse }
      * 
      */
@@ -238,6 +256,14 @@ public class ObjectFactory {
      */
     public CountMedicsByShiftResponse createCountMedicsByShiftResponse() {
         return new CountMedicsByShiftResponse();
+    }
+
+    /**
+     * Create an instance of {@link ListarCitasByIdMedico }
+     * 
+     */
+    public ListarCitasByIdMedico createListarCitasByIdMedico() {
+        return new ListarCitasByIdMedico();
     }
 
     /**
@@ -601,14 +627,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AnyTypeArray }
-     * 
-     */
-    public AnyTypeArray createAnyTypeArray() {
-        return new AnyTypeArray();
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListarAllAgendaResponse }{@code >}}
      * 
      */
@@ -906,6 +924,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarCitasByIdMedico }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "listarCitasByIdMedico")
+    public JAXBElement<ListarCitasByIdMedico> createListarCitasByIdMedico(ListarCitasByIdMedico value) {
+        return new JAXBElement<ListarCitasByIdMedico>(_ListarCitasByIdMedico_QNAME, ListarCitasByIdMedico.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ListarCitasByIdPacienteResponse }{@code >}}
      * 
      */
@@ -984,6 +1011,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicios/", name = "listarAgendaByMedicoResponse")
     public JAXBElement<ListarAgendaByMedicoResponse> createListarAgendaByMedicoResponse(ListarAgendaByMedicoResponse value) {
         return new JAXBElement<ListarAgendaByMedicoResponse>(_ListarAgendaByMedicoResponse_QNAME, ListarAgendaByMedicoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ListarCitasByIdMedicoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "listarCitasByIdMedicoResponse")
+    public JAXBElement<ListarCitasByIdMedicoResponse> createListarCitasByIdMedicoResponse(ListarCitasByIdMedicoResponse value) {
+        return new JAXBElement<ListarCitasByIdMedicoResponse>(_ListarCitasByIdMedicoResponse_QNAME, ListarCitasByIdMedicoResponse.class, null, value);
     }
 
     /**

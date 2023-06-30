@@ -9,6 +9,7 @@ Services\LogeoResponse.class
 Services\ListarCitasByIdPaciente.class
 Services\Logeo.class
 Services\CountPatientsByMedic.class
+Services\ListarCitasByIdMedicoResponse.class
 Services\Agenda.class
 Services\PacientePorEspecialidadResponse.class
 Services\CreateMAgendaResponse.class
@@ -70,5 +71,6 @@ controlador\psvm.class
 Services\Services.class
 Services\RegistrarPaciente.class
 Services\EncontrarPaciente.class
+Services\ListarCitasByIdMedico.class
 Services\EncontrarEspecialidadResponse.class
 Services\ListarAllAgendaResponse.class
