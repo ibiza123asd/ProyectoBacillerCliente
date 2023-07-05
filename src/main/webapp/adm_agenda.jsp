@@ -114,10 +114,6 @@
                     <form class="user" method="post" action="ControlCitas?accion=saveAgenda">
 
                         <div class="form-group">
-                            <label class="form-label">FECHA Y HORA</label>                                
-                            <input type="text" class="form-control form-control-sm" id="fhAgenda" name="fhAgenda" required  placeholder="Ingrese la fecha y hora (yyyy/MM/dd HH:mm:ss)">
-                        </div>
-                        <div class="form-group">
                             <label for="especialidades" class="form-label">Especialidades:</label>
                             <select class="form-select form-control-user" id="especialidades" name="especialidad" onchange="actualizarMedicos()" style="width: 100%; padding: 0.9%;" >
                                 <option value="">Seleccione una especialidad</option>
@@ -155,6 +151,10 @@
                                 <option value="Ma&ntilde;ana">Mañana</option>
                                 <option value="Tarde">Tarde</option>         
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">FECHA Y HORA</label>                                
+                            <input type="datetime-local" class="form-control form-control-sm" id="fhAgenda" name="fhAgenda" required >
                         </div>
                         <div class="modal-footer"> 
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>

@@ -132,16 +132,18 @@ public class ControlCitas extends HttpServlet {
                 medico.setIdMedico(idMedic);
                 Agenda agenda = new Agenda();
                 String fechaHoraStr = req.getParameter("fhAgenda");
-                System.out.println("La agenda es:" + fechaHoraStr);
+                LocalDateTime fechaHoras = LocalDateTime.parse(fechaHoraStr, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                DateTimeFormatter nuevoFormato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                String fechaHoraFormateada = fechaHoras.format(nuevoFormato);
+                System.out.println("La agenda es:" + fechaHoraFormateada);
 
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 Date fechaHora = null;
                 DatatypeFactory datatypeFactory = null;
                 XMLGregorianCalendar xmlfechaHora = null;
                 GregorianCalendar calendar = new GregorianCalendar();
-
                 try {
-                    fechaHora = dateFormat.parse(fechaHoraStr);
+                    fechaHora = dateFormat.parse(fechaHoraFormateada);
                     calendar.setTime(fechaHora);
                     System.out.println("La fechaHora:" + fechaHora);
                     // datatypeFactory = DatatypeFactory.newInstance();
