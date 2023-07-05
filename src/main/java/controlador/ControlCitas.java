@@ -244,8 +244,8 @@ public class ControlCitas extends HttpServlet {
 
     public void login(HttpServletRequest req, HttpServletResponse resp, String documento, String password) throws ServletException, IOException {
         Paciente paciente = sc.encontrarPacientebyLogeo(documento, password);
-        String dniAdmin = "75864266";
-        String passAdmin = "*******";
+        String dniAdmin = "11111";
+        String passAdmin = "11111";
         String name = "Administrador";
         if (documento.equalsIgnoreCase(dniAdmin) && passAdmin.equalsIgnoreCase(password)) {
             sesion = req.getSession();

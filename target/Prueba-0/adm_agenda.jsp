@@ -147,7 +147,8 @@
 
                         <div class="form-group">
                             <label class="form-label">TURNO</label>
-                            <select class="custom-select custom-select-sm form-control form-control-sm" id="idMedAgenda" name="nameAgenda" style="width: 100%; padding: 0.9%;" >                                                                     
+                            <select class="custom-select custom-select-sm form-control form-control-sm" id="idMedAgenda" name="nameAgenda" style="width: 100%; padding: 0.9%;" >
+                                <option value="">Seleccione un Turno</option>
                                 <option value="Ma&ntilde;ana">Mañana</option>
                                 <option value="Tarde">Tarde</option>         
                             </select>
