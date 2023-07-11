@@ -294,21 +294,33 @@ public class ControlCitas extends HttpServlet {
 
     public void evaluacion2(HttpServletRequest req, HttpServletResponse resp, String documento) throws ServletException, IOException {
         //Cuenta con Sis
+        System.out.println("Evaluando:" +documento);
         String valor = this.validarApiSIS(documento);
 
         if (valor != null) {
             //Validamos si tiene una cuenta
-            if (sc.encontrarPaciente(valor) != null) {
-                req.setAttribute("DNI", valor);
+            if (valor.endsWith("89")) {
                 req.setAttribute("bandera", 1);
-                req.setAttribute("Resultado", "Usted Cuenta con SIS y tiene Asociado una cuenta");
-                req.getRequestDispatcher("/ValidarSis.jsp").forward(req, resp);
-            } else {
                 req.setAttribute("DNI", valor);
-                req.setAttribute("bandera", 2);
-                req.setAttribute("Resultado", "Usted Cuenta con SIS, pero no tiene cuenta");
+                req.setAttribute("Resultado", "Usted Cuenta con SIS, pero no se encuentra activo");
                 req.getRequestDispatcher("/ValidarSis.jsp").forward(req, resp);
+
+            } else {
+                if (sc.encontrarPaciente(valor) != null) {
+
+                    req.setAttribute("DNI", valor);
+                    req.setAttribute("bandera", 1);
+                    req.setAttribute("Resultado", "Usted Cuenta con SIS y tiene Asociado una cuenta");
+                    req.getRequestDispatcher("/ValidarSis.jsp").forward(req, resp);
+
+                } else {
+                    req.setAttribute("DNI", valor);
+                    req.setAttribute("bandera", 2);
+                    req.setAttribute("Resultado", "Usted Cuenta con SIS, pero no tiene cuenta");
+                    req.getRequestDispatcher("/ValidarSis.jsp").forward(req, resp);
+                }
             }
+
         } else {
             req.setAttribute("bandera", 0);
             req.setAttribute("DNI", documento);
@@ -457,6 +469,9 @@ public class ControlCitas extends HttpServlet {
         documentos.add("654878");
         documentos.add("88888888");
         documentos.add("7777");
+        documentos.add("69965789");
+        documentos.add("67765789");
+        documentos.add("77766789");
         for (String doc : documentos) {
             if (doc.equals(documento)) {
                 resultado = documento;
@@ -473,7 +488,6 @@ public class ControlCitas extends HttpServlet {
         List<AgendaDTO> agenda2 = new ArrayList<AgendaDTO>();
         List<CitaDTO> fechaCitas = sc.encontrarListaCitasByidMedico(idMedico);
         List<String> fechaCitaString = new ArrayList<>();
-
 
         //ListaDeCitas Ocupadas
         for (CitaDTO item : fechaCitas) {
@@ -498,6 +512,5 @@ public class ControlCitas extends HttpServlet {
         System.out.println("Despues de eliminar son:" + agenda2.size());
         return agenda2;
     }
-
 
 }
